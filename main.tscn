@@ -1,38 +1,27 @@
-[gd_scene format=3 uid="uid://cgkpqrev3vci0"]
+[gd_scene format=3 uid="uid://dt7vglkjbyl36"]
 
-[ext_resource type="Script" uid="uid://bmajb5x8g0sef" path="res://character_body_2d.gd" id="1_0xm2m"]
-[ext_resource type="Script" uid="uid://cte876u1od3p6" path="res://main.gd" id="1_h2yge"]
-[ext_resource type="Texture2D" uid="uid://d1fi3fdofcnac" path="res://icon.svg" id="2_h2yge"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1bvp3"]
-size = Vector2(118.5, 117)
+[ext_resource type="PackedScene" uid="uid://cgkpqrev3vci0" path="res://Character.tscn" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://lgr4ah2afi8p" path="res://spike.tscn" id="2_0xm2m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0xm2m"]
-size = Vector2(372, 20)
+size = Vector2(184, 40)
 
-[node name="Node2D" type="Node2D" unique_id=1571014362]
-script = ExtResource("1_h2yge")
+[node name="Main" type="Node2D" unique_id=387650175]
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=2144189251]
-position = Vector2(13, 22)
-script = ExtResource("1_0xm2m")
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1278992659]
+offset_left = -8.0
+offset_top = 160.0
+offset_right = 176.0
+offset_bottom = 200.0
 
-[node name="Icon" type="Sprite2D" parent="CharacterBody2D" unique_id=1038181811]
-position = Vector2(546, 309)
-texture = ExtResource("2_h2yge")
+[node name="Character" parent="." unique_id=2144189251 instance=ExtResource("1_ig7tw")]
+position = Vector2(53, 62)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=432324156]
-position = Vector2(545, 309)
-shape = SubResource("RectangleShape2D_1bvp3")
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=10270301]
 
-[node name="Area2D" type="StaticBody2D" parent="." unique_id=337005781]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1662849706]
-position = Vector2(562, 468)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1169870233]
+position = Vector2(84, 180)
 shape = SubResource("RectangleShape2D_0xm2m")
 
-[node name="Basic" type="ColorRect" parent="." unique_id=8809940]
-offset_left = 842.0
-offset_top = 141.0
-offset_right = 882.0
-offset_bottom = 181.0
+[node name="Spike" parent="." unique_id=1197322424 instance=ExtResource("2_0xm2m")]
+position = Vector2(160, 160)

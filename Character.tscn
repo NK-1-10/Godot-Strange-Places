@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://cgkpqrev3vci0"]
+
+[ext_resource type="Script" uid="uid://bmajb5x8g0sef" path="res://character_body_2d.gd" id="1_oolk3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1bvp3"]
+size = Vector2(16, 16)
+
+[node name="Character" type="CharacterBody2D" unique_id=2144189251]
+position = Vector2(13, 22)
+script = ExtResource("1_oolk3")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=940414201]
+offset_left = -21.0
+offset_top = -30.0
+offset_right = -5.0
+offset_bottom = -14.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=432324156]
+position = Vector2(-13, -22)
+shape = SubResource("RectangleShape2D_1bvp3")
+
+[node name="OuchOuchBox" type="Area2D" parent="." unique_id=462261029]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="OuchOuchBox" unique_id=526939066]
+position = Vector2(-13, -22)
+shape = SubResource("RectangleShape2D_1bvp3")
+
+[node name="JumpBuffer" type="Timer" parent="." unique_id=2030586952]
+wait_time = 0.15
+one_shot = true
+
+[node name="JumpGrace" type="Timer" parent="." unique_id=1517633844]
+wait_time = 0.1
+one_shot = true
+
+[connection signal="area_entered" from="OuchOuchBox" to="." method="_on_ouch_ouch_box_area_entered"]
+[connection signal="timeout" from="JumpBuffer" to="." method="_on_jump_buffer_timeout"]
+[connection signal="timeout" from="JumpGrace" to="." method="_on_jump_grace_timeout"]
