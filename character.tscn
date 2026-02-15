@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://b0wwd6rstxjxd"]
+
+[ext_resource type="Script" uid="uid://bmajb5x8g0sef" path="res://character_body_2d.gd" id="1_pjt0s"]
+[ext_resource type="Texture2D" uid="uid://d1fi3fdofcnac" path="res://icon.svg" id="2_wa5vi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1bvp3"]
+size = Vector2(118.5, 117)
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1789837521]
+script = ExtResource("1_pjt0s")
+
+[node name="Icon" type="Sprite2D" parent="." unique_id=613739254]
+position = Vector2(546, 309)
+texture = ExtResource("2_wa5vi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=431491721]
+position = Vector2(545, 309)
+shape = SubResource("RectangleShape2D_1bvp3")
+
+[node name="dash_timer" type="Timer" parent="." unique_id=1695433261]
+wait_time = 0.4
+one_shot = true
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1716322566]
+position = Vector2(551, 311)
+process_callback = 0
+limit_smoothed = true
+position_smoothing_enabled = true
+position_smoothing_speed = 4.0
+
+[connection signal="timeout" from="dash_timer" to="." method="_on_dash_timer_timeout"]

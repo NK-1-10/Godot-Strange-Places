@@ -20,6 +20,7 @@ func _input(event):
 			$Basic.modulate = Color(0.847, 0.239, 0.133, 1.0)
 			doubleJump = false
 			dash = true
+			$CharacterBody2D.start_dash()
 		else:
 			$Basic.modulate = Color(1.0, 1.0, 1.0, 1.0)
 			dash = false

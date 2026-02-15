@@ -1,38 +1,42 @@
 [gd_scene format=3 uid="uid://cgkpqrev3vci0"]
 
-[ext_resource type="Script" uid="uid://bmajb5x8g0sef" path="res://character_body_2d.gd" id="1_0xm2m"]
 [ext_resource type="Script" uid="uid://cte876u1od3p6" path="res://main.gd" id="1_h2yge"]
-[ext_resource type="Texture2D" uid="uid://d1fi3fdofcnac" path="res://icon.svg" id="2_h2yge"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1bvp3"]
-size = Vector2(118.5, 117)
+[ext_resource type="PackedScene" uid="uid://b0wwd6rstxjxd" path="res://character.tscn" id="2_0xm2m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0xm2m"]
-size = Vector2(372, 20)
+size = Vector2(942, 26)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h2yge"]
+size = Vector2(538, 20)
 
 [node name="Node2D" type="Node2D" unique_id=1571014362]
 script = ExtResource("1_h2yge")
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=2144189251]
+[node name="CharacterBody2D" parent="." unique_id=1789837521 instance=ExtResource("2_0xm2m")]
 position = Vector2(13, 22)
-script = ExtResource("1_0xm2m")
-
-[node name="Icon" type="Sprite2D" parent="CharacterBody2D" unique_id=1038181811]
-position = Vector2(546, 309)
-texture = ExtResource("2_h2yge")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=432324156]
-position = Vector2(545, 309)
-shape = SubResource("RectangleShape2D_1bvp3")
 
 [node name="Area2D" type="StaticBody2D" parent="." unique_id=337005781]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1662849706]
-position = Vector2(562, 468)
+position = Vector2(682, 471)
 shape = SubResource("RectangleShape2D_0xm2m")
 
 [node name="Basic" type="ColorRect" parent="." unique_id=8809940]
-offset_left = 842.0
-offset_top = 141.0
-offset_right = 882.0
-offset_bottom = 181.0
+offset_left = 1128.0
+offset_top = 269.0
+offset_right = 1168.0
+offset_bottom = 309.0
+
+[node name="Area2D2" type="StaticBody2D" parent="." unique_id=1924045435]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2" unique_id=471550267]
+position = Vector2(1547, 366)
+shape = SubResource("RectangleShape2D_h2yge")
+
+[node name="TextEdit" type="TextEdit" parent="." unique_id=273611051]
+offset_left = 1296.0
+offset_top = 248.0
+offset_right = 1471.0
+offset_bottom = 319.0
+text = "press 7 on the 
+keypad to get here!"
