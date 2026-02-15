@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://b51ms81d6x8bo"]
+
+[ext_resource type="Script" uid="uid://dh3qwv5nvpims" path="res://dynamic_camera.gd" id="1_o00ur"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_22luw"]
+size = Vector2(16, 16)
+
+[node name="DynamicCamera" type="Node2D" unique_id=1131432514]
+script = ExtResource("1_o00ur")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=501300117]
+limit_smoothed = true
+position_smoothing_enabled = true
+position_smoothing_speed = 3.0
+drag_horizontal_enabled = true
+
+[node name="Control" type="Control" parent="Camera2D" unique_id=608712689]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -160.0
+offset_top = -88.0
+offset_right = 160.0
+offset_bottom = 88.0
+
+[node name="Area2D" type="Area2D" parent="." unique_id=795716324]
+collision_layer = 512
+collision_mask = 512
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1178520325]
+shape = SubResource("RectangleShape2D_22luw")
