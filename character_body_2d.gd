@@ -22,6 +22,11 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	velocity += get_gravity() * delta
 	
+	#Ejam augšā un palaiž vaļā
+	if Input.is_action_just_released("Jump") and velocity.y < 0:
+		velocity.y *= 0.5 
+	
+	
 	if(is_on_floor()):
 		Can_Jump = true
 		if(PowerUsed):

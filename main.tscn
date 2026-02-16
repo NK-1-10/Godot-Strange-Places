@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dt7vglkjbyl36"]
 
-[ext_resource type="PackedScene" uid="uid://cgkpqrev3vci0" path="res://Character.tscn" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://do66puq0hv3w1" path="res://Character.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://lgr4ah2afi8p" path="res://spike.tscn" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://d3qi7nyfotbdy" path="res://text_player.tscn" id="3_h2yge"]
 [ext_resource type="PackedScene" uid="uid://468ojndhyc71" path="res://camera_zone.tscn" id="4_1bvp3"]
@@ -23,7 +23,7 @@ size = Vector2(456, 208)
 [node name="Main" type="Node2D" unique_id=387650175]
 
 [node name="Character" parent="." unique_id=2144189251 instance=ExtResource("1_ig7tw")]
-position = Vector2(53, 62)
+position = Vector2(-348, 140)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=10270301]
 
