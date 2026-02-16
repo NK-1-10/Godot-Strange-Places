@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://468ojndhyc71"]
+
+[ext_resource type="Script" uid="uid://dv3awquyh1nws" path="res://camera_zone.gd" id="1_y6if2"]
+
+[node name="CameraZone" type="Area2D" unique_id=1929517110]
+collision_layer = 512
+collision_mask = 512
+script = ExtResource("1_y6if2")
