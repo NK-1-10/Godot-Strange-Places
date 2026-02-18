@@ -28,7 +28,7 @@ func _physics_process(delta: float) -> void:
 	
 	if AntiG == true:
 		velocity += get_gravity() * delta * -1
-		var doubleJump = false;
+		doubleJump = false;
 		up_direction = Vector2.DOWN
 	
 	
@@ -130,3 +130,9 @@ func _on_ouch_ouch_box_area_entered(area: Area2D) -> void:
 	#resets the scene
 	#player die kaput
 	get_tree().change_scene_to_file("res://main.tscn")
+
+
+func _on_orb_detector_area_entered(area: Area2D) -> void:
+	if(PowerUsed):
+		PowerUsed = false
+	

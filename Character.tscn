@@ -32,6 +32,13 @@ collision_mask = 2
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Event_Activator" unique_id=149027443]
 shape = SubResource("RectangleShape2D_1bvp3")
 
+[node name="Orb_Detector" type="Area2D" parent="." unique_id=1645226412]
+collision_layer = 4096
+collision_mask = 4096
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Orb_Detector" unique_id=543907387]
+shape = SubResource("RectangleShape2D_1bvp3")
+
 [node name="JumpBuffer" type="Timer" parent="." unique_id=2030586952]
 wait_time = 0.15
 one_shot = true
@@ -43,5 +50,6 @@ one_shot = true
 [node name="DynamicCamera" parent="." unique_id=1131432514 instance=ExtResource("2_7ig0a")]
 
 [connection signal="area_entered" from="OuchOuchBox" to="." method="_on_ouch_ouch_box_area_entered"]
+[connection signal="area_entered" from="Orb_Detector" to="." method="_on_orb_detector_area_entered"]
 [connection signal="timeout" from="JumpBuffer" to="." method="_on_jump_buffer_timeout"]
 [connection signal="timeout" from="JumpGrace" to="." method="_on_jump_grace_timeout"]

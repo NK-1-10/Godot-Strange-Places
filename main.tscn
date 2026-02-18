@@ -4,6 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://lgr4ah2afi8p" path="res://spike.tscn" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://d3qi7nyfotbdy" path="res://text_player.tscn" id="3_h2yge"]
 [ext_resource type="PackedScene" uid="uid://468ojndhyc71" path="res://camera_zone.tscn" id="4_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://ssv2yrdtvcpt" path="res://one_way_hitbox.tscn" id="5_lquwl"]
+[ext_resource type="PackedScene" uid="uid://h8rw4c0xf32" path="res://orb.tscn" id="6_7mycd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0xm2m"]
 size = Vector2(176, 40)
@@ -21,10 +23,10 @@ size = Vector2(352, 372)
 size = Vector2(456, 208)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1bvp3"]
-size = Vector2(574, 20)
+size = Vector2(574, 40)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5vw27"]
-size = Vector2(83.5, 20)
+size = Vector2(83, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kek77"]
 size = Vector2(340, 20)
@@ -119,7 +121,7 @@ offset_right = 123.0
 offset_bottom = 7.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4" unique_id=877168504]
-position = Vector2(-163, -2)
+position = Vector2(-163, -12)
 shape = SubResource("RectangleShape2D_1bvp3")
 
 [node name="StaticBody2D5" type="StaticBody2D" parent="." unique_id=1796731095]
@@ -131,7 +133,7 @@ offset_right = 338.0
 offset_bottom = 4.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D5" unique_id=2101279306]
-position = Vector2(297.25, -6)
+position = Vector2(297.5, -16)
 shape = SubResource("RectangleShape2D_5vw27")
 
 [node name="StaticBody2D6" type="StaticBody2D" parent="." unique_id=1883677771]
@@ -145,3 +147,20 @@ offset_bottom = -130.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D6" unique_id=278047502]
 position = Vector2(169, -140)
 shape = SubResource("RectangleShape2D_kek77")
+
+[node name="OneWayHitbox" parent="." unique_id=607584545 instance=ExtResource("5_lquwl")]
+position = Vector2(-232.00003, 96)
+scale = Vector2(5, 0.25)
+
+[node name="ColorRect" type="ColorRect" parent="OneWayHitbox" unique_id=111034016]
+offset_left = -9.599994
+offset_top = -8.0
+offset_right = 11.200006
+
+[node name="Orb" parent="." unique_id=1868009222 instance=ExtResource("6_7mycd")]
+position = Vector2(-336, -64)
+RespawnTime = 2
+
+[node name="Orb2" parent="." unique_id=1011317963 instance=ExtResource("6_7mycd")]
+position = Vector2(-232, -80)
+RespawnTime = 1

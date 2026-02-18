@@ -1,11 +1,15 @@
 [gd_scene format=3 uid="uid://lgr4ah2afi8p"]
 
+[ext_resource type="Script" uid="uid://d0q85xqulg1y0" path="res://Spike_Movement.gd" id="1_8ryga"]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pe76i"]
 size = Vector2(16, 8)
 
 [node name="Spike" type="Area2D" unique_id=1197322424]
 collision_layer = 4
 collision_mask = 4
+script = ExtResource("1_8ryga")
+Displacements = Array[Vector2]([Vector2(0, 0)])
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1225612084]
 offset_left = -8.0
