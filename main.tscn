@@ -15,10 +15,19 @@ size = Vector2(448, 40)
 size = Vector2(104, 40)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7mycd"]
-size = Vector2(352, 208)
+size = Vector2(352, 372)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_272bh"]
 size = Vector2(456, 208)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1bvp3"]
+size = Vector2(574, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5vw27"]
+size = Vector2(83.5, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kek77"]
+size = Vector2(340, 20)
 
 [node name="Main" type="Node2D" unique_id=387650175]
 
@@ -90,7 +99,7 @@ position = Vector2(168, 80)
 Zone = NodePath("CollisionShape2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CameraZone" unique_id=1011656068]
-position = Vector2(-8, 16)
+position = Vector2(-8, -66)
 shape = SubResource("RectangleShape2D_7mycd")
 
 [node name="CameraZone2" parent="." unique_id=1511414361 node_paths=PackedStringArray("Zone") instance=ExtResource("4_1bvp3")]
@@ -100,3 +109,39 @@ Zone = NodePath("CollisionShape2D")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CameraZone2" unique_id=1562349508]
 position = Vector2(-60, 0)
 shape = SubResource("RectangleShape2D_272bh")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="." unique_id=7645054]
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D4" unique_id=667456063]
+offset_left = -448.0
+offset_top = -33.0
+offset_right = 123.0
+offset_bottom = 7.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4" unique_id=877168504]
+position = Vector2(-163, -2)
+shape = SubResource("RectangleShape2D_1bvp3")
+
+[node name="StaticBody2D5" type="StaticBody2D" parent="." unique_id=1796731095]
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D5" unique_id=842412841]
+offset_left = 256.0
+offset_top = -36.0
+offset_right = 338.0
+offset_bottom = 4.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D5" unique_id=2101279306]
+position = Vector2(297.25, -6)
+shape = SubResource("RectangleShape2D_5vw27")
+
+[node name="StaticBody2D6" type="StaticBody2D" parent="." unique_id=1883677771]
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D6" unique_id=1430348937]
+offset_left = -1.0
+offset_top = -170.0
+offset_right = 339.0
+offset_bottom = -130.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D6" unique_id=278047502]
+position = Vector2(169, -140)
+shape = SubResource("RectangleShape2D_kek77")
