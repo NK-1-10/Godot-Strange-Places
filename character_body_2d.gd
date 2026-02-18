@@ -11,7 +11,7 @@ var Wants_jump = false
 var Can_Jump = false
 
 var AntiG = false;
-var doubleJump = true;
+var doubleJump = false;
 var dash = false;
 
 var PowerUsed = false
@@ -28,6 +28,7 @@ func _physics_process(delta: float) -> void:
 	
 	if AntiG == true:
 		velocity += get_gravity() * delta * -1
+		var doubleJump = false;
 		up_direction = Vector2.DOWN
 	
 	
