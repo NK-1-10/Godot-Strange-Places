@@ -151,8 +151,6 @@ stream = ExtResource("5_cxxw8")
 [node name="DingSound" type="AudioStreamPlayer2D" parent="Sounds" unique_id=120286478]
 stream = ExtResource("6_e24yd")
 
-[node name="dash" type="AudioStreamPlayer2D" parent="Sounds" unique_id=996920768]
-
 [connection signal="area_entered" from="OuchOuchBox" to="." method="_on_ouch_ouch_box_area_entered"]
 [connection signal="area_entered" from="Orb_Detector" to="." method="_on_orb_detector_area_entered"]
 [connection signal="timeout" from="JumpBuffer" to="." method="_on_jump_buffer_timeout"]

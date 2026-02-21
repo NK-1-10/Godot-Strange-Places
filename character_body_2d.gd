@@ -15,16 +15,47 @@ var Wants_jump = false
 var Can_Jump = false
 
 var AntiG = false;
-var doubleJump = true;
+var doubleJump = false;
 var dash = false;
 var dashing = false
 var MoveDir = 1
 var DashSpeed = 750
 var PowerUsed = false
+var natural = true
+
+func _Red1():
+	$"../background/ourple".visible = false
+	$"../background/blue".visible = false
+	$"../background/green".visible = false
+	$"../background/red".visible = true
+func _Blue1():
+	$"../background/ourple".visible = false
+	$"../background/blue".visible = true
+	$"../background/green".visible = false
+	$"../background/red".visible = false
+func _Purple1():
+	$"../background/ourple".visible = true
+	$"../background/blue".visible = false
+	$"../background/green".visible = false
+	$"../background/red".visible = false
+func _Green1():
+	$"../background/ourple".visible = false
+	$"../background/blue".visible = false
+	$"../background/green".visible = true
+	$"../background/red".visible = false
 
 func _ready() -> void:
 	SetColor()
 	add_to_group("Character")
+	natural = true;
+	_Purple1()
+	
+	
+	if natural == true:
+		var AntiG = false;
+		var doubleJump = false;
+		var dash = false;
+
 
 
 func _physics_process(delta: float) -> void:
@@ -42,6 +73,7 @@ func _physics_process(delta: float) -> void:
 	if AntiG == false:
 		velocity += get_gravity() * delta
 		up_direction = Vector2.UP
+		natural = true;
 	
 	if AntiG == true:
 		velocity += get_gravity() * delta * -1
@@ -51,6 +83,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("ReverseGravity"):
 		$Sounds/AntiGSound.play();
 		if AntiG == true:
+			natural = true;
 			AntiG = false;
 			dash = true
 			Particles.position = Vector2(0, 8)
@@ -141,17 +174,32 @@ func _on_jump_grace_timeout() -> void:
 
 func SetColor():
 	if(PowerUsed):
-		$ColorRect.color = Color(1.0, 1.0, 1.0, 1.0)
+		$ColorRect.color = Color(0.6, 0.2, 0.8, 1.0)
+		_Purple1()
 	elif AntiG:
 		$ColorRect.color = Color(0.314, 0.745, 0.318, 1.0)
+		_Green1()
 	elif doubleJump:
 		$ColorRect.color = Color(0.847, 0.239, 0.133, 1.0)
+		_Red1()
 	elif dash:
 		$ColorRect.color = Color(0.148, 0.481, 0.85, 1.0)
-	else:
+		_Blue1()
+	elif natural :
 		$ColorRect.color = Color(0.6, 0.2, 0.8, 1.0)
+		_Purple1()
 		
 	get_tree().call_group("balls", "update_visuals", doubleJump, AntiG, dash)
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 func _input(event):
 	if event.is_action_pressed("Switch") and Can_Jump:

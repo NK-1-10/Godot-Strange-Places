@@ -23,7 +23,7 @@ func _setup_transition():
 func In(Path):
 	if is_instance_valid(SceneAnimator):
 		SceneAnimator.play("In")
-		await get_tree().create_timer(1).timeout
+		await get_tree().create_timer(0.2).timeout
 	
 	var error = get_tree().change_scene_to_file(Path)
 	if error != OK:

@@ -28,6 +28,229 @@ sources/0 = SubResource("TileSetAtlasSource_5vw27")
 
 [node name="Main" type="Node2D" unique_id=387650175]
 
+[node name="background" type="Node2D" parent="." unique_id=736277962 groups=["main"]]
+
+[node name="blue" type="Node2D" parent="background" unique_id=1532375178]
+visible = false
+
+[node name="Base" type="ColorRect" parent="background/blue" unique_id=2017129173]
+offset_left = -551.0
+offset_top = -340.0
+offset_right = 446.0
+offset_bottom = 354.0
+color = Color(0.012626315, 0.12125292, 0.14132816, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="background/blue" unique_id=914934273]
+offset_left = -416.0
+offset_top = -103.0
+offset_right = -260.50714
+offset_bottom = -11.645294
+rotation = 0.5235988
+color = Color(0.020461904, 0.16741407, 0.19211432, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="background/blue" unique_id=2127165017]
+offset_left = -115.0
+offset_top = -157.00006
+offset_right = 76.23294
+offset_bottom = 0.9046631
+rotation = -0.5235988
+color = Color(0.020461904, 0.16741407, 0.19211432, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="background/blue" unique_id=778217432]
+offset_left = 223.00003
+offset_top = 116.00003
+offset_right = 414.23297
+offset_bottom = 273.90475
+rotation = -0.2617994
+color = Color(0.020461904, 0.16741407, 0.19211432, 1)
+
+[node name="ColorRect5" type="ColorRect" parent="background/blue" unique_id=1544302018]
+offset_left = 218.0
+offset_top = -148.99998
+offset_right = 373.49286
+offset_bottom = -57.64528
+rotation = -0.5235988
+color = Color(0.020461904, 0.16741407, 0.19211432, 1)
+
+[node name="ColorRect6" type="ColorRect" parent="background/blue" unique_id=515660229]
+offset_left = -183.99998
+offset_top = 37.999992
+offset_right = -28.507126
+offset_bottom = 129.3547
+rotation = -0.5235988
+color = Color(0.020461904, 0.16741407, 0.19211432, 1)
+
+[node name="ourple" type="Node2D" parent="background" unique_id=1891916821]
+visible = false
+
+[node name="Base" type="ColorRect" parent="background/ourple" unique_id=38451259]
+offset_left = -551.0
+offset_top = -340.0
+offset_right = 446.0
+offset_bottom = 354.0
+color = Color(0.14538786, 0.015224226, 0.26252782, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="background/ourple" unique_id=1674690865]
+offset_left = -416.0
+offset_top = -103.0
+offset_right = -260.50714
+offset_bottom = -11.645294
+rotation = 0.5235988
+color = Color(0.20579213, 0.041656047, 0.32165194, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="background/ourple" unique_id=1566074668]
+offset_left = -115.0
+offset_top = -157.00006
+offset_right = 76.23294
+offset_bottom = 0.9046631
+rotation = -0.5235988
+color = Color(0.20392157, 0.043137256, 0.32156864, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="background/ourple" unique_id=2089603672]
+offset_left = 223.00003
+offset_top = 116.00003
+offset_right = 414.23297
+offset_bottom = 273.90475
+rotation = -0.2617994
+color = Color(0.20392157, 0.043137256, 0.32156864, 1)
+
+[node name="ColorRect5" type="ColorRect" parent="background/ourple" unique_id=1981631027]
+offset_left = 218.0
+offset_top = -148.99998
+offset_right = 373.49286
+offset_bottom = -57.64528
+rotation = -0.5235988
+color = Color(0.20392157, 0.043137256, 0.32156864, 1)
+
+[node name="ColorRect6" type="ColorRect" parent="background/ourple" unique_id=712654721]
+offset_left = -183.99998
+offset_top = 37.999992
+offset_right = -28.507126
+offset_bottom = 129.3547
+rotation = -0.5235988
+color = Color(0.20392157, 0.043137256, 0.32156864, 1)
+
+[node name="green" type="Node2D" parent="background" unique_id=1934249357]
+visible = false
+
+[node name="Base" type="ColorRect" parent="background/green" unique_id=1789430340]
+offset_left = -551.0
+offset_top = -340.0
+offset_right = 446.0
+offset_bottom = 354.0
+color = Color(0.016383143, 0.13217673, 0.02921356, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="background/green" unique_id=581748959]
+offset_left = -416.0
+offset_top = -103.0
+offset_right = -260.50714
+offset_bottom = -11.645294
+rotation = 0.5235988
+color = Color(0.07540036, 0.17288989, 0.083229564, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="background/green" unique_id=810692550]
+offset_left = -115.0
+offset_top = -157.00006
+offset_right = 76.23294
+offset_bottom = 0.9046631
+rotation = -0.5235988
+color = Color(0.07540036, 0.17288989, 0.083229564, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="background/green" unique_id=78369515]
+offset_left = 223.00003
+offset_top = 116.00003
+offset_right = 414.23297
+offset_bottom = 273.90475
+rotation = -0.2617994
+color = Color(0.07540036, 0.17288989, 0.083229564, 1)
+
+[node name="ColorRect5" type="ColorRect" parent="background/green" unique_id=11552672]
+offset_left = 218.0
+offset_top = -148.99998
+offset_right = 373.49286
+offset_bottom = -57.64528
+rotation = -0.5235988
+color = Color(0.07540036, 0.17288989, 0.083229564, 1)
+
+[node name="ColorRect6" type="ColorRect" parent="background/green" unique_id=1441875594]
+offset_left = -183.99998
+offset_top = 37.999992
+offset_right = -28.507126
+offset_bottom = 129.3547
+rotation = -0.5235988
+color = Color(0.07540036, 0.17288989, 0.083229564, 1)
+
+[node name="red" type="Node2D" parent="background" unique_id=1832335456]
+visible = false
+
+[node name="Base" type="ColorRect" parent="background/red" unique_id=782021380]
+offset_left = -551.0
+offset_top = -340.0
+offset_right = 446.0
+offset_bottom = 354.0
+color = Color(0.22628936, 0.0079334695, 0.016636882, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="background/red" unique_id=433586373]
+offset_left = -416.0
+offset_top = -103.0
+offset_right = -260.50714
+offset_bottom = -11.645294
+rotation = 0.5235988
+color = Color(0.2803864, 0.04888673, 0.04638561, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="background/red" unique_id=99219202]
+offset_left = -115.0
+offset_top = -157.00006
+offset_right = 76.23294
+offset_bottom = 0.9046631
+rotation = -0.5235988
+color = Color(0.2803864, 0.04888673, 0.04638561, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="background/red" unique_id=1689077229]
+offset_left = 223.00003
+offset_top = 116.00003
+offset_right = 414.23297
+offset_bottom = 273.90475
+rotation = -0.2617994
+color = Color(0.2803864, 0.04888673, 0.04638561, 1)
+
+[node name="ColorRect5" type="ColorRect" parent="background/red" unique_id=740115320]
+offset_left = 218.0
+offset_top = -148.99998
+offset_right = 373.49286
+offset_bottom = -57.64528
+rotation = -0.5235988
+color = Color(0.2803864, 0.04888673, 0.04638561, 1)
+
+[node name="ColorRect6" type="ColorRect" parent="background/red" unique_id=402797642]
+offset_left = -183.99998
+offset_top = 37.999992
+offset_right = -28.507126
+offset_bottom = 129.3547
+rotation = -0.5235988
+color = Color(0.2803864, 0.04888673, 0.04638561, 1)
+
+[node name="DoubleJump" type="RichTextLabel" parent="." unique_id=133646128]
+offset_left = -430.0
+offset_top = 18.0
+offset_right = -306.0
+offset_bottom = 68.0
+text = "Press Q to doublejump :)"
+
+[node name="Reverse" type="RichTextLabel" parent="." unique_id=890117065]
+offset_left = 190.0
+offset_top = 16.0
+offset_right = 327.0
+offset_bottom = 87.0
+text = "Hmmm..What would happen if you pressed W?"
+
+[node name="dash" type="RichTextLabel" parent="." unique_id=950394853]
+offset_left = -216.0
+offset_top = -156.0
+offset_right = -79.0
+offset_bottom = -85.0
+text = "Ok, let's press E, shall we?"
+
 [node name="Character" parent="." unique_id=2144189251 instance=ExtResource("1_ig7tw")]
 position = Vector2(-348, 140)
 
@@ -36,6 +259,7 @@ position = Vector2(216, 112)
 TextLines = ["Hey", "You seem lost", "Text3"]
 
 [node name="CameraZone" parent="." unique_id=1929517110 node_paths=PackedStringArray("Zone") instance=ExtResource("4_1bvp3")]
+visible = false
 position = Vector2(168, 80)
 Zone = NodePath("CollisionShape2D")
 
@@ -48,6 +272,7 @@ position = Vector2(-160, 96)
 Zone = NodePath("CollisionShape2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CameraZone2" unique_id=1562349508]
+visible = false
 position = Vector2(-60, -125.5)
 shape = SubResource("RectangleShape2D_272bh")
 
@@ -111,7 +336,7 @@ RespawnPoint = NodePath("../Respawn2")
 
 [node name="NOTouchZone" parent="." unique_id=337766028 node_paths=PackedStringArray("RespawnPoint") instance=ExtResource("8_5vw27")]
 position = Vector2(-296, -226)
-scale = Vector2(6.6, 0.5)
+scale = Vector2(8.2, 0.6)
 collision_layer = 4
 collision_mask = 4
 RespawnPoint = NodePath("../Respawn2")
