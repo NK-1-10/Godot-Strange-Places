@@ -24,6 +24,7 @@ var PowerUsed = false
 
 func _ready() -> void:
 	SetColor()
+	add_to_group("Character")
 
 
 func _physics_process(delta: float) -> void:
@@ -165,7 +166,7 @@ func _input(event):
 
 
 func _on_ouch_ouch_box_area_entered(area: Area2D) -> void:
-	if area.is_in_group("spikes"):
+	if area.is_in_group("spikes") || area.is_in_group("NoZone"):
 		$Sounds/SpikeDeathSound.play()
 		$DeadParticles.color = $ColorRect.color
 		$DeadParticles.emitting = true

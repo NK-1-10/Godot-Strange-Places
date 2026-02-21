@@ -14,7 +14,7 @@ size = Vector2(16, 16)
 offsets = PackedFloat32Array(0, 0.7906404, 1)
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
 
-[node name="Character" type="CharacterBody2D" unique_id=2144189251]
+[node name="Character" type="CharacterBody2D" unique_id=2144189251 groups=["Character"]]
 script = ExtResource("1_oolk3")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=940414201]

@@ -14,7 +14,7 @@ func _on_texture_button_button_down() -> void:
 
 
 func _on_texture_button_2_button_down() -> void:
-	pass # Replace with function body.
+	Global.In("res://lvl_2.tscn")
 
 
 func _on_texture_button_3_button_down() -> void:
