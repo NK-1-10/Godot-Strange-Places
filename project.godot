@@ -11,9 +11,14 @@ config_version=5
 [application]
 
 config/name="Strange Places"
-run/main_scene="uid://dt7vglkjbyl36"
+run/main_scene="uid://cwssj1gs8vnkf"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Global="*uid://fqj16e7tq5np"
+SceneChange="*uid://duoni3bx050k3"
 
 [display]
 
@@ -65,6 +70,7 @@ ReverseGravity={
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"

@@ -6,14 +6,20 @@ const JUMP_VELOCITY = -400.0
 const Acceleration = 100
 const Deceleration = 0.2
 
+@onready var Particles = $Particles
+@onready var RunParticles = $Particles/RunParticles
+@onready var JumpParticles = $Particles/JumpParticles
+
 
 var Wants_jump = false
 var Can_Jump = false
 
 var AntiG = false;
-var doubleJump = false;
+var doubleJump = true;
 var dash = false;
-
+var dashing = false
+var MoveDir = 1
+var DashSpeed = 750
 var PowerUsed = false
 
 func _ready() -> void:
@@ -21,6 +27,16 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
+	if Input.is_action_just_pressed("Dash") and !dashing and !PowerUsed and dash:
+		dashing = true
+		PowerUsed = true
+		get_node("DashLength").start()
+		SetColor()
+	
+	if dashing:
+		velocity = Vector2(DashSpeed*MoveDir, 0);
+		move_and_slide()
+		return
 	
 	if AntiG == false:
 		velocity += get_gravity() * delta
@@ -28,16 +44,21 @@ func _physics_process(delta: float) -> void:
 	
 	if AntiG == true:
 		velocity += get_gravity() * delta * -1
-		var doubleJump = false;
 		up_direction = Vector2.DOWN
 	
 	
 	if Input.is_action_just_pressed("ReverseGravity"):
+		$Sounds/AntiGSound.play();
 		if AntiG == true:
 			AntiG = false;
+			dash = true
+			Particles.position = Vector2(0, 8)
 			SetColor()
 		elif AntiG == false:
 			AntiG = true;
+			doubleJump = false;
+			dash = false
+			Particles.position = Vector2(0, -8)
 			SetColor()
 
 
@@ -73,10 +94,15 @@ func _physics_process(delta: float) -> void:
 		if AntiG:
 			jump_force = -JUMP_VELOCITY #I think šitas dabū upside down jump. correct me if im wrong :>
 		if Can_Jump:
+			JumpParticles.emitting = false
+			$Sounds/JumpSound.play()
+			JumpParticles.emitting = true
 			Wants_jump = false
 			Can_Jump = false
 			velocity.y = jump_force
 		elif !PowerUsed && doubleJump:
+			JumpParticles.emitting = false
+			JumpParticles.emitting = true
 			velocity.y = jump_force
 			Wants_jump = false
 			PowerUsed = true
@@ -87,6 +113,7 @@ func _physics_process(delta: float) -> void:
 	var direction := Input.get_axis("Left", "Right")
 	
 	if direction:
+		MoveDir = direction
 		velocity.x += direction * Acceleration
 		if(abs(velocity.x) > Max_SPEED):
 			velocity.x = Max_SPEED * direction
@@ -94,6 +121,13 @@ func _physics_process(delta: float) -> void:
 		velocity.x -= velocity.x * Deceleration
 		if(abs(velocity.x) < 50):
 			velocity.x = 0
+	
+	if velocity.x != 0:
+		RunParticles.gravity = Vector2(-90 * MoveDir, 0)
+		RunParticles.emitting = true
+	else:
+		RunParticles.gravity = Vector2(-90 * MoveDir, 0)
+		RunParticles.emitting = false
 	
 	move_and_slide()
 
@@ -111,8 +145,12 @@ func SetColor():
 		$ColorRect.color = Color(0.314, 0.745, 0.318, 1.0)
 	elif doubleJump:
 		$ColorRect.color = Color(0.847, 0.239, 0.133, 1.0)
-	else:
+	elif dash:
 		$ColorRect.color = Color(0.148, 0.481, 0.85, 1.0)
+	else:
+		$ColorRect.color = Color(0.6, 0.2, 0.8, 1.0)
+		
+	get_tree().call_group("balls", "update_visuals", doubleJump, AntiG, dash)
 
 func _input(event):
 	if event.is_action_pressed("Switch") and Can_Jump:
@@ -127,6 +165,26 @@ func _input(event):
 
 
 func _on_ouch_ouch_box_area_entered(area: Area2D) -> void:
-	#resets the scene
-	#player die kaput
-	get_tree().change_scene_to_file("res://main.tscn")
+	if area.is_in_group("spikes"):
+		$Sounds/SpikeDeathSound.play()
+		$DeadParticles.color = $ColorRect.color
+		$DeadParticles.emitting = true
+		global_position = area.RespawnPoint.global_position 
+	
+	if area.is_in_group("balls"):
+		$Sounds/DingSound.play() 
+		area.queue_free() # Bumba pazūd
+
+
+func _on_orb_detector_area_entered(area: Area2D) -> void:
+	if velocity.y > 0:
+		velocity.y = -60
+	
+	if(PowerUsed):
+		PowerUsed = false
+		SetColor()
+	
+
+
+func _on_dash_length_timeout() -> void:
+	dashing = false

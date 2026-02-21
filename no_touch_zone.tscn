@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://w03uvpej14wp"]
+
+[ext_resource type="Script" uid="uid://btl8nxlcjmwtb" path="res://no_touch_zone.gd" id="1_531gy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ifri1"]
+size = Vector2(40, 6)
+
+[node name="NOTouchZone" type="Area2D" unique_id=337766028]
+script = ExtResource("1_531gy")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=775843614]
+offset_right = 40.0
+offset_bottom = 6.0
+color = Color(0.5834163, 0.1537182, 0.19052953, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1686594858]
+position = Vector2(20, 3)
+shape = SubResource("RectangleShape2D_ifri1")

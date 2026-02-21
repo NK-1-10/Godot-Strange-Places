@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://bwgcds6xgn7d3"]
+
+[ext_resource type="Script" uid="uid://j4chpfpyylwv" path="res://ball.gd" id="1_hgol0"]
+[ext_resource type="Texture2D" uid="uid://b5yix2ey2c3oy" path="res://blueBall.png" id="1_x8fbi"]
+[ext_resource type="Texture2D" uid="uid://nrqyny7cghgx" path="res://redBall.png" id="2_ktgx5"]
+[ext_resource type="Texture2D" uid="uid://b2j4pb366uxmb" path="res://greenBall.png" id="3_hgol0"]
+[ext_resource type="Texture2D" uid="uid://dyqejjvsgqw2w" path="res://purpleBall.png" id="5_n5601"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ktgx5"]
+radius = 8.0
+
+[node name="Ball" type="Area2D" unique_id=1931487699]
+script = ExtResource("1_hgol0")
+
+[node name="Balls_Colour" type="Node2D" parent="." unique_id=397145600]
+
+[node name="BlueBall" type="Sprite2D" parent="Balls_Colour" unique_id=868815881]
+texture = ExtResource("1_x8fbi")
+
+[node name="RedBall" type="Sprite2D" parent="Balls_Colour" unique_id=2044802907]
+texture = ExtResource("2_ktgx5")
+
+[node name="GreenBall" type="Sprite2D" parent="Balls_Colour" unique_id=2071785949]
+texture = ExtResource("3_hgol0")
+
+[node name="PurpleBall" type="Sprite2D" parent="Balls_Colour" unique_id=830202520]
+texture = ExtResource("5_n5601")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1245622633]
+shape = SubResource("CircleShape2D_ktgx5")
