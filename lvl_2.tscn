@@ -6,12 +6,19 @@
 [ext_resource type="PackedScene" uid="uid://468ojndhyc71" path="res://camera_zone.tscn" id="4_1v3ac"]
 [ext_resource type="PackedScene" uid="uid://w03uvpej14wp" path="res://no_touch_zone.tscn" id="6_7rxco"]
 [ext_resource type="PackedScene" uid="uid://bwgcds6xgn7d3" path="res://ball.tscn" id="6_bmf8x"]
+[ext_resource type="PackedScene" uid="uid://tb237327n01e" path="res://portal.tscn" id="7_7rxco"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f7f4c"]
+size = Vector2(233, 362)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7rxco"]
+size = Vector2(205, 434)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l31ol"]
-size = Vector2(367, 387)
+size = Vector2(367, 688)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bmf8x"]
-size = Vector2(195, 397)
+size = Vector2(195, 664)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dbx23"]
 texture = ExtResource("1_031k3")
@@ -24,31 +31,544 @@ sources/0 = SubResource("TileSetAtlasSource_dbx23")
 
 [node name="LVL2" type="Node2D" unique_id=534347380]
 
-[node name="CameraZone" parent="." unique_id=1929517110 node_paths=PackedStringArray("Zone") instance=ExtResource("4_1v3ac")]
+[node name="BGround" type="Node2D" parent="." unique_id=2070629178]
+position = Vector2(-3.0517578e-05, 3.0517578e-05)
+
+[node name="Purp" type="Node2D" parent="BGround" unique_id=1600515608]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="BGround/Purp" unique_id=1267915893]
+offset_left = -465.99997
+offset_top = -921.0
+offset_right = 449.00003
+offset_bottom = 373.0
+color = Color(0.14509805, 0.015686275, 0.2627451, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="BGround/Purp" unique_id=832883110]
+offset_left = -23.999973
+offset_top = -33.000034
+offset_right = 61.10284
+offset_bottom = 129.35251
+rotation = -0.7853982
+color = Color(0.20392157, 0.043137256, 0.32156864, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="BGround/Purp" unique_id=305017809]
+offset_left = 250.00003
+offset_top = -8.0000305
+offset_right = 367.19263
+offset_bottom = 154.35251
+rotation = 0.5235988
+color = Color(0.20392157, 0.043137256, 0.32156864, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="BGround/Purp" unique_id=2040183308]
+offset_left = 229.00003
+offset_top = -259.00003
+offset_right = 346.19263
+offset_bottom = -96.64749
+rotation = 0.7853982
+color = Color(0.20392157, 0.043137256, 0.32156864, 1)
+
+[node name="ColorRect5" type="ColorRect" parent="BGround/Purp" unique_id=1191624259]
+offset_left = -162.99997
+offset_top = -118.00002
+offset_right = -45.807373
+offset_bottom = 44.352516
+rotation = 0.5235988
+color = Color(0.20392157, 0.043137256, 0.32156864, 1)
+
+[node name="ColorRect6" type="ColorRect" parent="BGround/Purp" unique_id=1101641077]
+offset_left = -10.31998
+offset_top = -175.7522
+offset_right = 44.2326
+offset_bottom = -46.163483
+rotation = 2.0943952
+color = Color(0.20392157, 0.043137256, 0.32156864, 1)
+
+[node name="ColorRect7" type="ColorRect" parent="BGround/Purp" unique_id=2102628466]
+offset_left = 61.000034
+offset_top = -208.00003
+offset_right = 115.55261
+offset_bottom = -78.411316
+rotation = 3.926991
+color = Color(0.20392157, 0.043137256, 0.32156864, 1)
+
+[node name="ColorRect8" type="ColorRect" parent="BGround/Purp" unique_id=160677789]
+offset_left = -254.41092
+offset_top = -397.08557
+offset_right = -163.3208
+offset_bottom = -157.32578
+rotation = 5.2359877
+color = Color(0.20392157, 0.043137256, 0.32156864, 1)
+
+[node name="ColorRect9" type="ColorRect" parent="BGround/Purp" unique_id=168312795]
+offset_left = 105.00003
+offset_top = -507.00003
+offset_right = 159.55261
+offset_bottom = -377.41132
+rotation = 1.5707964
+color = Color(0.20392157, 0.043137256, 0.32156864, 1)
+
+[node name="ColorRect10" type="ColorRect" parent="BGround/Purp" unique_id=1695105442]
+offset_left = -103.99997
+offset_top = 221.0
+offset_right = -49.44739
+offset_bottom = 350.5887
+rotation = 3.926991
+color = Color(0.20392157, 0.043137256, 0.32156864, 1)
+
+[node name="ColorRect11" type="ColorRect" parent="BGround/Purp" unique_id=1639778847]
+offset_left = -312.99997
+offset_top = -193.0
+offset_right = -258.4474
+offset_bottom = -63.411285
+rotation = 3.926991
+color = Color(0.20392157, 0.043137256, 0.32156864, 1)
+
+[node name="ColorRect12" type="ColorRect" parent="BGround/Purp" unique_id=325420550]
+offset_left = -280.99997
+offset_top = -421.00003
+offset_right = -203.8617
+offset_bottom = -238.53687
+rotation = 2.8797934
+color = Color(0.20392157, 0.043137256, 0.32156864, 1)
+
+[node name="ColorRect13" type="ColorRect" parent="BGround/Purp" unique_id=847491307]
+offset_left = -207.99997
+offset_top = -522.0
+offset_right = -153.44739
+offset_bottom = -392.4113
+rotation = 3.926991
+color = Color(0.20392157, 0.043137256, 0.32156864, 1)
+
+[node name="ColorRect14" type="ColorRect" parent="BGround/Purp" unique_id=2070134088]
+offset_left = -5.999977
+offset_top = -535.0001
+offset_right = 59.735405
+offset_bottom = -377.1408
+rotation = 2.8797934
+color = Color(0.20392157, 0.043137256, 0.32156864, 1)
+
+[node name="ColorRect15" type="ColorRect" parent="BGround/Purp" unique_id=2073063243]
+offset_left = -142.99997
+offset_top = -721.0
+offset_right = -88.44739
+offset_bottom = -591.41125
+rotation = 3.926991
+color = Color(0.20392157, 0.043137256, 0.32156864, 1)
+
+[node name="Red" type="Node2D" parent="BGround" unique_id=1200097945]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="BGround/Red" unique_id=580073383]
+offset_left = -465.99997
+offset_top = -921.0
+offset_right = 449.00003
+offset_bottom = 373.0
+color = Color(0.22745098, 0.007843138, 0.015686275, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="BGround/Red" unique_id=1983230477]
+offset_left = -23.999973
+offset_top = -33.000034
+offset_right = 61.10284
+offset_bottom = 129.35251
+rotation = -0.7853982
+color = Color(0.2784314, 0.047058824, 0.047058824, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="BGround/Red" unique_id=972145061]
+offset_left = 250.00003
+offset_top = -8.0000305
+offset_right = 367.19263
+offset_bottom = 154.35251
+rotation = 0.5235988
+color = Color(0.2784314, 0.047058824, 0.047058824, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="BGround/Red" unique_id=1088650096]
+offset_left = 229.00003
+offset_top = -259.00003
+offset_right = 346.19263
+offset_bottom = -96.64749
+rotation = 0.7853982
+color = Color(0.2784314, 0.047058824, 0.047058824, 1)
+
+[node name="ColorRect5" type="ColorRect" parent="BGround/Red" unique_id=502934515]
+offset_left = -162.99997
+offset_top = -118.00002
+offset_right = -45.807373
+offset_bottom = 44.352516
+rotation = 0.5235988
+color = Color(0.2784314, 0.047058824, 0.047058824, 1)
+
+[node name="ColorRect6" type="ColorRect" parent="BGround/Red" unique_id=269205643]
+offset_left = -10.31998
+offset_top = -175.7522
+offset_right = 44.2326
+offset_bottom = -46.163483
+rotation = 2.0943952
+color = Color(0.2784314, 0.047058824, 0.047058824, 1)
+
+[node name="ColorRect7" type="ColorRect" parent="BGround/Red" unique_id=284470281]
+offset_left = 61.000034
+offset_top = -208.00003
+offset_right = 115.55261
+offset_bottom = -78.411316
+rotation = 3.926991
+color = Color(0.2784314, 0.047058824, 0.047058824, 1)
+
+[node name="ColorRect8" type="ColorRect" parent="BGround/Red" unique_id=2057535541]
+offset_left = -254.41092
+offset_top = -397.08557
+offset_right = -163.3208
+offset_bottom = -157.32578
+rotation = 5.2359877
+color = Color(0.2784314, 0.047058824, 0.047058824, 1)
+
+[node name="ColorRect9" type="ColorRect" parent="BGround/Red" unique_id=212059354]
+offset_left = 105.00003
+offset_top = -507.00003
+offset_right = 159.55261
+offset_bottom = -377.41132
+rotation = 1.5707964
+color = Color(0.2784314, 0.047058824, 0.047058824, 1)
+
+[node name="ColorRect10" type="ColorRect" parent="BGround/Red" unique_id=1283946725]
+offset_left = -103.99997
+offset_top = 221.0
+offset_right = -49.44739
+offset_bottom = 350.5887
+rotation = 3.926991
+color = Color(0.2784314, 0.047058824, 0.047058824, 1)
+
+[node name="ColorRect11" type="ColorRect" parent="BGround/Red" unique_id=1110158731]
+offset_left = -312.99997
+offset_top = -193.0
+offset_right = -258.4474
+offset_bottom = -63.411285
+rotation = 3.926991
+color = Color(0.2784314, 0.047058824, 0.047058824, 1)
+
+[node name="ColorRect12" type="ColorRect" parent="BGround/Red" unique_id=341850378]
+offset_left = -280.99997
+offset_top = -421.00003
+offset_right = -203.8617
+offset_bottom = -238.53687
+rotation = 2.8797934
+color = Color(0.2784314, 0.047058824, 0.047058824, 1)
+
+[node name="ColorRect13" type="ColorRect" parent="BGround/Red" unique_id=822603968]
+offset_left = -207.99997
+offset_top = -522.0
+offset_right = -153.44739
+offset_bottom = -392.4113
+rotation = 3.926991
+color = Color(0.2784314, 0.047058824, 0.047058824, 1)
+
+[node name="ColorRect14" type="ColorRect" parent="BGround/Red" unique_id=592921072]
+offset_left = -5.999977
+offset_top = -535.0001
+offset_right = 59.735405
+offset_bottom = -377.1408
+rotation = 2.8797934
+color = Color(0.2784314, 0.047058824, 0.047058824, 1)
+
+[node name="ColorRect15" type="ColorRect" parent="BGround/Red" unique_id=1753293109]
+offset_left = -142.99997
+offset_top = -721.0
+offset_right = -88.44739
+offset_bottom = -591.41125
+rotation = 3.926991
+color = Color(0.2784314, 0.047058824, 0.047058824, 1)
+
+[node name="Green" type="Node2D" parent="BGround" unique_id=1829234953]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="BGround/Green" unique_id=1810285734]
+offset_left = -465.99997
+offset_top = -921.0
+offset_right = 449.00003
+offset_bottom = 373.0
+color = Color(0.015686275, 0.13333334, 0.02745098, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="BGround/Green" unique_id=1655333539]
+offset_left = -23.999973
+offset_top = -33.000034
+offset_right = 61.10284
+offset_bottom = 129.35251
+rotation = -0.7853982
+color = Color(0.07450981, 0.17254902, 0.08235294, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="BGround/Green" unique_id=1386627893]
+offset_left = 250.00003
+offset_top = -8.0000305
+offset_right = 367.19263
+offset_bottom = 154.35251
+rotation = 0.5235988
+color = Color(0.07450981, 0.17254902, 0.08235294, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="BGround/Green" unique_id=2049755321]
+offset_left = 229.00003
+offset_top = -259.00003
+offset_right = 346.19263
+offset_bottom = -96.64749
+rotation = 0.7853982
+color = Color(0.07450981, 0.17254902, 0.08235294, 1)
+
+[node name="ColorRect5" type="ColorRect" parent="BGround/Green" unique_id=1652681653]
+offset_left = -162.99997
+offset_top = -118.00002
+offset_right = -45.807373
+offset_bottom = 44.352516
+rotation = 0.5235988
+color = Color(0.07450981, 0.17254902, 0.08235294, 1)
+
+[node name="ColorRect6" type="ColorRect" parent="BGround/Green" unique_id=241622273]
+offset_left = -10.31998
+offset_top = -175.7522
+offset_right = 44.2326
+offset_bottom = -46.163483
+rotation = 2.0943952
+color = Color(0.07450981, 0.17254902, 0.08235294, 1)
+
+[node name="ColorRect7" type="ColorRect" parent="BGround/Green" unique_id=1030663774]
+offset_left = 61.000034
+offset_top = -208.00003
+offset_right = 115.55261
+offset_bottom = -78.411316
+rotation = 3.926991
+color = Color(0.07450981, 0.17254902, 0.08235294, 1)
+
+[node name="ColorRect8" type="ColorRect" parent="BGround/Green" unique_id=1402658005]
+offset_left = -254.41092
+offset_top = -397.08557
+offset_right = -163.3208
+offset_bottom = -157.32578
+rotation = 5.2359877
+color = Color(0.07450981, 0.17254902, 0.08235294, 1)
+
+[node name="ColorRect9" type="ColorRect" parent="BGround/Green" unique_id=210869865]
+offset_left = 105.00003
+offset_top = -507.00003
+offset_right = 159.55261
+offset_bottom = -377.41132
+rotation = 1.5707964
+color = Color(0.07450981, 0.17254902, 0.08235294, 1)
+
+[node name="ColorRect10" type="ColorRect" parent="BGround/Green" unique_id=432488932]
+offset_left = -103.99997
+offset_top = 221.0
+offset_right = -49.44739
+offset_bottom = 350.5887
+rotation = 3.926991
+color = Color(0.07450981, 0.17254902, 0.08235294, 1)
+
+[node name="ColorRect11" type="ColorRect" parent="BGround/Green" unique_id=2023444303]
+offset_left = -312.99997
+offset_top = -193.0
+offset_right = -258.4474
+offset_bottom = -63.411285
+rotation = 3.926991
+color = Color(0.07450981, 0.17254902, 0.08235294, 1)
+
+[node name="ColorRect12" type="ColorRect" parent="BGround/Green" unique_id=2049457540]
+offset_left = -280.99997
+offset_top = -421.00003
+offset_right = -203.8617
+offset_bottom = -238.53687
+rotation = 2.8797934
+color = Color(0.07450981, 0.17254902, 0.08235294, 1)
+
+[node name="ColorRect13" type="ColorRect" parent="BGround/Green" unique_id=1285940203]
+offset_left = -207.99997
+offset_top = -522.0
+offset_right = -153.44739
+offset_bottom = -392.4113
+rotation = 3.926991
+color = Color(0.07450981, 0.17254902, 0.08235294, 1)
+
+[node name="ColorRect14" type="ColorRect" parent="BGround/Green" unique_id=1661625650]
+offset_left = -5.999977
+offset_top = -535.0001
+offset_right = 59.735405
+offset_bottom = -377.1408
+rotation = 2.8797934
+color = Color(0.07450981, 0.17254902, 0.08235294, 1)
+
+[node name="ColorRect15" type="ColorRect" parent="BGround/Green" unique_id=200431266]
+offset_left = -142.99997
+offset_top = -721.0
+offset_right = -88.44739
+offset_bottom = -591.41125
+rotation = 3.926991
+color = Color(0.07450981, 0.17254902, 0.08235294, 1)
+
+[node name="Blue" type="Node2D" parent="BGround" unique_id=1890587672]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="BGround/Blue" unique_id=175496620]
+offset_left = -465.99997
+offset_top = -921.0
+offset_right = 449.00003
+offset_bottom = 373.0
+color = Color(0.011764706, 0.12156863, 0.14117648, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="BGround/Blue" unique_id=139052090]
+offset_left = -23.999973
+offset_top = -33.000034
+offset_right = 61.10284
+offset_bottom = 129.35251
+rotation = -0.7853982
+color = Color(0.019607844, 0.16862746, 0.19215687, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="BGround/Blue" unique_id=1876149740]
+offset_left = 250.00003
+offset_top = -8.0000305
+offset_right = 367.19263
+offset_bottom = 154.35251
+rotation = 0.5235988
+color = Color(0.019607844, 0.16862746, 0.19215687, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="BGround/Blue" unique_id=1861831681]
+offset_left = 229.00003
+offset_top = -259.00003
+offset_right = 346.19263
+offset_bottom = -96.64749
+rotation = 0.7853982
+color = Color(0.019607844, 0.16862746, 0.19215687, 1)
+
+[node name="ColorRect5" type="ColorRect" parent="BGround/Blue" unique_id=222879996]
+offset_left = -162.99997
+offset_top = -118.00002
+offset_right = -45.807373
+offset_bottom = 44.352516
+rotation = 0.5235988
+color = Color(0.019607844, 0.16862746, 0.19215687, 1)
+
+[node name="ColorRect6" type="ColorRect" parent="BGround/Blue" unique_id=1547985627]
+offset_left = -10.31998
+offset_top = -175.7522
+offset_right = 44.2326
+offset_bottom = -46.163483
+rotation = 2.0943952
+color = Color(0.019607844, 0.16862746, 0.19215687, 1)
+
+[node name="ColorRect7" type="ColorRect" parent="BGround/Blue" unique_id=1193809939]
+offset_left = 61.000034
+offset_top = -208.00003
+offset_right = 115.55261
+offset_bottom = -78.411316
+rotation = 3.926991
+color = Color(0.019607844, 0.16862746, 0.19215687, 1)
+
+[node name="ColorRect8" type="ColorRect" parent="BGround/Blue" unique_id=772929780]
+offset_left = -254.41092
+offset_top = -397.08557
+offset_right = -163.3208
+offset_bottom = -157.32578
+rotation = 5.2359877
+color = Color(0.019607844, 0.16862746, 0.19215687, 1)
+
+[node name="ColorRect9" type="ColorRect" parent="BGround/Blue" unique_id=1961886897]
+offset_left = 105.00003
+offset_top = -507.00003
+offset_right = 159.55261
+offset_bottom = -377.41132
+rotation = 1.5707964
+color = Color(0.019607844, 0.16862746, 0.19215687, 1)
+
+[node name="ColorRect10" type="ColorRect" parent="BGround/Blue" unique_id=303240697]
+offset_left = -103.99997
+offset_top = 221.0
+offset_right = -49.44739
+offset_bottom = 350.5887
+rotation = 3.926991
+color = Color(0.019607844, 0.16862746, 0.19215687, 1)
+
+[node name="ColorRect11" type="ColorRect" parent="BGround/Blue" unique_id=2049445112]
+offset_left = -312.99997
+offset_top = -193.0
+offset_right = -258.4474
+offset_bottom = -63.411285
+rotation = 3.926991
+color = Color(0.019607844, 0.16862746, 0.19215687, 1)
+
+[node name="ColorRect12" type="ColorRect" parent="BGround/Blue" unique_id=2045813750]
+offset_left = -280.99997
+offset_top = -421.00003
+offset_right = -203.8617
+offset_bottom = -238.53687
+rotation = 2.8797934
+color = Color(0.019607844, 0.16862746, 0.19215687, 1)
+
+[node name="ColorRect13" type="ColorRect" parent="BGround/Blue" unique_id=1506362599]
+offset_left = -207.99997
+offset_top = -522.0
+offset_right = -153.44739
+offset_bottom = -392.4113
+rotation = 3.926991
+color = Color(0.019607844, 0.16862746, 0.19215687, 1)
+
+[node name="ColorRect14" type="ColorRect" parent="BGround/Blue" unique_id=1693681909]
+offset_left = -5.999977
+offset_top = -535.0001
+offset_right = 59.735405
+offset_bottom = -377.1408
+rotation = 2.8797934
+color = Color(0.019607844, 0.16862746, 0.19215687, 1)
+
+[node name="ColorRect15" type="ColorRect" parent="BGround/Blue" unique_id=515367815]
+offset_left = -142.99997
+offset_top = -721.0
+offset_right = -88.44739
+offset_bottom = -591.41125
+rotation = 3.926991
+color = Color(0.019607844, 0.16862746, 0.19215687, 1)
+
+[node name="NOTouchZone8" parent="." unique_id=337766028 node_paths=PackedStringArray("RespawnPoint") instance=ExtResource("6_7rxco")]
+position = Vector2(-346, -327)
+rotation = -1.5707964
+scale = Vector2(3, 0.4)
+RespawnPoint = NodePath("../Respawn3")
+
+[node name="CameraZone4" parent="." unique_id=1929517110 node_paths=PackedStringArray("Zone") instance=ExtResource("4_1v3ac")]
+Zone = NodePath("CollisionShape2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CameraZone4" unique_id=1577118791]
+position = Vector2(-52, -680)
+shape = SubResource("RectangleShape2D_f7f4c")
+
+[node name="CameraZone3" parent="." unique_id=1994728969 node_paths=PackedStringArray("Zone") instance=ExtResource("4_1v3ac")]
+Zone = NodePath("CollisionShape2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CameraZone3" unique_id=318797814]
+position = Vector2(-244.5, -410)
+shape = SubResource("RectangleShape2D_7rxco")
+
+[node name="CameraZone" parent="." unique_id=231087773 node_paths=PackedStringArray("Zone") instance=ExtResource("4_1v3ac")]
 position = Vector2(150, 98)
 Zone = NodePath("CollisionShape2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CameraZone" unique_id=358716084]
-position = Vector2(33.5, -105.5)
+position = Vector2(33.5, -256)
 shape = SubResource("RectangleShape2D_l31ol")
 
 [node name="CameraZone2" parent="." unique_id=676881318 node_paths=PackedStringArray("Zone") instance=ExtResource("4_1v3ac")]
 Zone = NodePath("CollisionShape2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CameraZone2" unique_id=1469440873]
-position = Vector2(-73.5, -12.5)
+position = Vector2(-73.5, -146)
 shape = SubResource("RectangleShape2D_bmf8x")
-
-[node name="Character" parent="." unique_id=2144189251 instance=ExtResource("1_tu4c3")]
-position = Vector2(144, 96)
 
 [node name="TileMap" type="TileMap" parent="." unique_id=305736604]
 position = Vector2(-10, 10)
 tile_set = SubResource("TileSet_tu4c3")
 format = 2
-layer_0/tile_data = PackedInt32Array(524294, 0, 0, 524295, 0, 0, 524296, 0, 0, 524297, 0, 0, 524298, 0, 0, 524299, 0, 0, 524300, 0, 0, 524301, 0, 0, 589837, 0, 0, 589836, 0, 0, 589835, 0, 0, 589834, 0, 0, 589833, 0, 0, 589832, 0, 0, 589831, 0, 0, 589830, 0, 0, 589829, 0, 0, 524293, 0, 0, 131086, 0, 0, 131087, 0, 0, 131088, 0, 0, 131089, 0, 0, 131092, 0, 0, 131093, 0, 0, 65550, 0, 0, 65551, 0, 0, 65552, 0, 0, 65553, 0, 0, 65556, 0, 0, 65557, 0, 0, -196593, 0, 0, -196594, 0, 0, -196595, 0, 0, -196596, 0, 0, -196597, 0, 0, -196598, 0, 0, -196599, 0, 0, -196600, 0, 0, -196601, 0, 0, -196602, 0, 0, -196603, 0, 0, -196604, 0, 0, 196622, 0, 0, 262158, 0, 0, 327694, 0, 0, 393230, 0, 0, 458766, 0, 0, 524302, 0, 0, 589838, 0, 0, 196623, 0, 0, 262159, 0, 0, 327695, 0, 0, 393231, 0, 0, 458767, 0, 0, 524303, 0, 0, 589839, 0, 0, 196629, 0, 0, 262165, 0, 0, 327701, 0, 0, 393237, 0, 0, 458773, 0, 0, 524309, 0, 0, 589845, 0, 0, 196628, 0, 0, 262164, 0, 0, 327700, 0, 0, 393236, 0, 0, 458772, 0, 0, 524308, 0, 0, 589844, 0, 0, 21, 0, 0, -65515, 0, 0, -131051, 0, 0, -196587, 0, 0, -262123, 0, 0, -327659, 0, 0, -393195, 0, 0, -458731, 0, 0, -524267, 0, 0, -589803, 0, 0, -655339, 0, 0, -720875, 0, 0, -786411, 0, 0, -851947, 0, 0, -917483, 0, 0, 20, 0, 0, -65516, 0, 0, -131052, 0, 0, -196588, 0, 0, -262124, 0, 0, -327660, 0, 0, -393196, 0, 0, -458732, 0, 0, -524268, 0, 0, -589804, 0, 0, -655340, 0, 0, -720876, 0, 0, -786412, 0, 0, -851948, 0, 0, -917484, 0, 0, -458748, 0, 0, -458747, 0, 0, -458746, 0, 0, -458745, 0, 0, -524284, 0, 0, -524283, 0, 0, -524282, 0, 0, -524281, 0, 0, -524280, 0, 0, -458744, 0, 0, -720892, 0, 0, -720891, 0, 0, -720890, 0, 0, -720889, 0, 0, -720888, 0, 0, -720887, 0, 0, -720886, 0, 0, -720885, 0, 0, -720884, 0, 0, -720883, 0, 0, -720882, 0, 0, -720881, 0, 0, -720880, 0, 0, -786416, 0, 0, -786417, 0, 0, -786418, 0, 0, -786419, 0, 0, -786420, 0, 0, -786421, 0, 0, -786422, 0, 0, -786423, 0, 0, -786424, 0, 0, -786425, 0, 0, -786426, 0, 0, -786427, 0, 0, -786428, 0, 0, -524275, 0, 0, -458739, 0, 0, -524274, 0, 0, -524273, 0, 0, -524272, 0, 0, -524271, 0, 0, -458735, 0, 0, -458736, 0, 0, -458737, 0, 0, -458738, 0, 0, -786429, 0, 0, -720893, 0, 0, -655357, 0, 0, -589821, 0, 0, -524285, 0, 0, -458749, 0, 0, -786430, 0, 0, -720894, 0, 0, -655358, 0, 0, -589822, 0, 0, -524286, 0, 0, -458750, 0, 0, -131073, 0, 0, -65537, 0, 0, -65538, 0, 0, -65539, 0, 0, -65540, 0, 0, -65541, 0, 0, -65542, 0, 0, -131078, 0, 0, -131077, 0, 0, -131076, 0, 0, -131075, 0, 0, -131074, 0, 0, -327681, 0, 0, -393217, 0, 0, -458752, 0, 0, -458751, 0, 0, -524287, 0, 0, -524288, 0, 0, -458753, 0, 0, -458754, 0, 0, -393218, 0, 0, -327682, 0, 0, -327683, 0, 0, -327684, 0, 0, -327685, 0, 0, -327686, 0, 0, -393222, 0, 0, -393221, 0, 0, -393220, 0, 0, -393219, 0, 0, 589840, 0, 0, 589841, 0, 0, 589842, 0, 0, 589843, 0, 0, -851952, 0, 0, -917488, 0, 0, -983024, 0, 0, -1048560, 0, 0, -1114096, 0, 0, -1179632, 0, 0, -1245168, 0, 0, -1245169, 0, 0, -1179633, 0, 0, -1114097, 0, 0, -1048561, 0, 0, -983025, 0, 0, -917489, 0, 0, -851953, 0, 0, -983020, 0, 0, -1048556, 0, 0, -1114092, 0, 0, -1179628, 0, 0, -1245164, 0, 0, -1245163, 0, 0, -1179627, 0, 0, -1114091, 0, 0, -983019, 0, 0, -1048555, 0, 0)
+layer_0/tile_data = PackedInt32Array(524294, 0, 0, 524295, 0, 0, 524296, 0, 0, 524297, 0, 0, 524298, 0, 0, 524299, 0, 0, 524300, 0, 0, 524301, 0, 0, 589837, 0, 0, 589836, 0, 0, 589835, 0, 0, 589834, 0, 0, 589833, 0, 0, 589832, 0, 0, 589831, 0, 0, 589830, 0, 0, 589829, 0, 0, 524293, 0, 0, 131086, 0, 0, 131087, 0, 0, 131088, 0, 0, 131089, 0, 0, 131092, 0, 0, 131093, 0, 0, 65550, 0, 0, 65551, 0, 0, 65552, 0, 0, 65553, 0, 0, 65556, 0, 0, 65557, 0, 0, -196593, 0, 0, -196594, 0, 0, -196595, 0, 0, -196596, 0, 0, -196597, 0, 0, -196598, 0, 0, -196599, 0, 0, -196600, 0, 0, -196601, 0, 0, -196602, 0, 0, -196603, 0, 0, -196604, 0, 0, 196622, 0, 0, 262158, 0, 0, 327694, 0, 0, 393230, 0, 0, 458766, 0, 0, 524302, 0, 0, 589838, 0, 0, 196623, 0, 0, 262159, 0, 0, 327695, 0, 0, 393231, 0, 0, 458767, 0, 0, 524303, 0, 0, 589839, 0, 0, 196629, 0, 0, 262165, 0, 0, 327701, 0, 0, 393237, 0, 0, 458773, 0, 0, 524309, 0, 0, 589845, 0, 0, 196628, 0, 0, 262164, 0, 0, 327700, 0, 0, 393236, 0, 0, 458772, 0, 0, 524308, 0, 0, 589844, 0, 0, 21, 0, 0, -65515, 0, 0, -131051, 0, 0, -196587, 0, 0, -262123, 0, 0, -327659, 0, 0, -393195, 0, 0, -458731, 0, 0, -524267, 0, 0, -589803, 0, 0, -655339, 0, 0, -720875, 0, 0, -786411, 0, 0, -851947, 0, 0, -917483, 0, 0, 20, 0, 0, -65516, 0, 0, -131052, 0, 0, -196588, 0, 0, -262124, 0, 0, -327660, 0, 0, -393196, 0, 0, -458732, 0, 0, -524268, 0, 0, -589804, 0, 0, -655340, 0, 0, -720876, 0, 0, -786412, 0, 0, -851948, 0, 0, -917484, 0, 0, -458748, 0, 0, -458747, 0, 0, -458746, 0, 0, -458745, 0, 0, -524284, 0, 0, -524283, 0, 0, -524282, 0, 0, -524281, 0, 0, -524280, 0, 0, -458744, 0, 0, -720892, 0, 0, -720891, 0, 0, -720890, 0, 0, -720889, 0, 0, -720888, 0, 0, -720887, 0, 0, -720886, 0, 0, -720885, 0, 0, -720884, 0, 0, -720883, 0, 0, -720882, 0, 0, -720881, 0, 0, -720880, 0, 0, -786416, 0, 0, -786417, 0, 0, -786418, 0, 0, -786419, 0, 0, -786420, 0, 0, -786421, 0, 0, -786422, 0, 0, -786423, 0, 0, -786424, 0, 0, -786425, 0, 0, -786426, 0, 0, -786427, 0, 0, -786428, 0, 0, -524275, 0, 0, -458739, 0, 0, -524274, 0, 0, -524273, 0, 0, -524272, 0, 0, -524271, 0, 0, -458735, 0, 0, -458736, 0, 0, -458737, 0, 0, -458738, 0, 0, -786429, 0, 0, -720893, 0, 0, -655357, 0, 0, -589821, 0, 0, -524285, 0, 0, -458749, 0, 0, -786430, 0, 0, -720894, 0, 0, -655358, 0, 0, -589822, 0, 0, -524286, 0, 0, -458750, 0, 0, -131073, 0, 0, -65537, 0, 0, -65538, 0, 0, -65539, 0, 0, -65540, 0, 0, -65541, 0, 0, -65542, 0, 0, -131078, 0, 0, -131077, 0, 0, -131076, 0, 0, -131075, 0, 0, -131074, 0, 0, -327681, 0, 0, -393217, 0, 0, -458752, 0, 0, -458751, 0, 0, -524287, 0, 0, -524288, 0, 0, -458753, 0, 0, -458754, 0, 0, -393218, 0, 0, -327682, 0, 0, -327683, 0, 0, -327684, 0, 0, -327685, 0, 0, -327686, 0, 0, -393222, 0, 0, -393221, 0, 0, -393220, 0, 0, -393219, 0, 0, 589840, 0, 0, 589841, 0, 0, 589842, 0, 0, 589843, 0, 0, -851952, 0, 0, -917488, 0, 0, -983024, 0, 0, -1048560, 0, 0, -1114096, 0, 0, -1179632, 0, 0, -1245168, 0, 0, -1245169, 0, 0, -1179633, 0, 0, -1114097, 0, 0, -1048561, 0, 0, -983025, 0, 0, -917489, 0, 0, -851953, 0, 0, -983020, 0, 0, -1048556, 0, 0, -1114092, 0, 0, -1179628, 0, 0, -1245164, 0, 0, -1245163, 0, 0, -1179627, 0, 0, -1114091, 0, 0, -983019, 0, 0, -1048555, 0, 0, -131068, 0, 0, -65532, 0, 0, 4, 0, 0, 65540, 0, 0, 131076, 0, 0, 196612, 0, 0, 262148, 0, 0, 327684, 0, 0, 393220, 0, 0, 458756, 0, 0, 524292, 0, 0, 589828, 0, 0, -393225, 0, 0, -327689, 0, 0, -262153, 0, 0, -196617, 0, 0, -131081, 0, 0, -65545, 0, 0, -131079, 0, 0, -131080, 0, 0, -65544, 0, 0, -65543, 0, 0, -393226, 0, 0, -327690, 0, 0, -262154, 0, 0, -196618, 0, 0, -131082, 0, 0, -65546, 0, 0, -851978, 0, 0, -851977, 0, 0, -851976, 0, 0, -851975, 0, 0, -851974, 0, 0, -851973, 0, 0, -917514, 0, 0, -917513, 0, 0, -917512, 0, 0, -917511, 0, 0, -917510, 0, 0, -917509, 0, 0, -786442, 0, 0, -720906, 0, 0, -655370, 0, 0, -589834, 0, 0, -524298, 0, 0, -458762, 0, 0, -786441, 0, 0, -720905, 0, 0, -655369, 0, 0, -589833, 0, 0, -524297, 0, 0, -458761, 0, 0, -851972, 0, 0, -851971, 0, 0, -851970, 0, 0, -851969, 0, 0, -917505, 0, 0, -917506, 0, 0, -917507, 0, 0, -917508, 0, 0, 655359, 0, 0, 655358, 0, 0, 655357, 0, 0, 655356, 0, 0, 655355, 0, 0, 655354, 0, 0, 655353, 0, 0, 655352, 0, 0, 655351, 0, 0, 655350, 0, 0, 589814, 0, 0, 589815, 0, 0, 589816, 0, 0, 589817, 0, 0, 589818, 0, 0, 589819, 0, 0, 589820, 0, 0, 589821, 0, 0, 589822, 0, 0, 589823, 0, 0, 720895, 0, 0, 786431, 0, 0, 851967, 0, 0, 917503, 0, 0, 983038, 0, 0, 1048574, 0, 0, 1114110, 0, 0, 1179646, 0, 0, 1179647, 0, 0, 1114111, 0, 0, 1048575, 0, 0, 983039, 0, 0, 851966, 0, 0, 786430, 0, 0, 720894, 0, 0, 917502, 0, 0, 655364, 0, 0, 720900, 0, 0, 786436, 0, 0, 851972, 0, 0, 917508, 0, 0, 983044, 0, 0, 1048580, 0, 0, 1114116, 0, 0, 1114117, 0, 0, 1048581, 0, 0, 983045, 0, 0, 917509, 0, 0, 851973, 0, 0, 786437, 0, 0, 720901, 0, 0, 655365, 0, 0, 131062, 0, 0, 196598, 0, 0, 131063, 0, 0, 131064, 0, 0, 131065, 0, 0, 131066, 0, 0, 196602, 0, 0, 196601, 0, 0, 196600, 0, 0, 196599, 0, 0, -2, 0, 0, 65534, 0, 0, 131070, 0, 0, 196606, 0, 0, 262142, 0, 0, 262141, 0, 0, 196605, 0, 0, 131069, 0, 0, 65533, 0, 0, -3, 0, 0, 393209, 0, 0, 393210, 0, 0, 393211, 0, 0, 393212, 0, 0, 393213, 0, 0, 327677, 0, 0, 327678, 0, 0, 393214, 0, 0, -1, 0, 0, 65535, 0, 0, 131071, 0, 0, 196607, 0, 0, 262143, 0, 0, 327679, 0, 0, 393215, 0, 0, -131083, 0, 0, -65547, 0, 0, -11, 0, 0, 65525, 0, 0, 131061, 0, 0, 196597, 0, 0, 262133, 0, 0, 327669, 0, 0, 393205, 0, 0, 458741, 0, 0, 524277, 0, 0, 589813, 0, 0, 655349, 0, 0, 655348, 0, 0, 589812, 0, 0, 524276, 0, 0, 458740, 0, 0, 393204, 0, 0, 327668, 0, 0, 262132, 0, 0, 196596, 0, 0, 131060, 0, 0, 65524, 0, 0, -131084, 0, 0, -65548, 0, 0, -12, 0, 0, -1048571, 0, 0, -983035, 0, 0, -917499, 0, 0, -851963, 0, 0, -1048570, 0, 0, -983034, 0, 0, -917498, 0, 0, -851962, 0, 0, -1179643, 0, 0, -1179642, 0, 0, -1179641, 0, 0, -1179640, 0, 0, -1179639, 0, 0, -1179638, 0, 0, -1179637, 0, 0, -1179636, 0, 0, -1114100, 0, 0, -1114101, 0, 0, -1114102, 0, 0, -1114103, 0, 0, -1114104, 0, 0, -1114105, 0, 0, -1114106, 0, 0, -1114107, 0, 0, -1310704, 0, 0, -1376240, 0, 0, -1441776, 0, 0, -1441777, 0, 0, -1376241, 0, 0, -1310705, 0, 0, -1376242, 0, 0, -1376243, 0, 0, -1376244, 0, 0, -1376245, 0, 0, -1376246, 0, 0, -1441782, 0, 0, -1441781, 0, 0, -1441780, 0, 0, -1441779, 0, 0, -1441778, 0, 0, -1245177, 0, 0, -1310713, 0, 0, -1376249, 0, 0, -1441785, 0, 0, -1441786, 0, 0, -1376250, 0, 0, -1310714, 0, 0, -1245178, 0, 0, -1507316, 0, 0, -1572852, 0, 0, -1572853, 0, 0, -1507317, 0, 0, -1638388, 0, 0, -1703924, 0, 0, -1769460, 0, 0, -1834996, 0, 0, -1900532, 0, 0, -1966068, 0, 0, -2031605, 0, 0, -2097141, 0, 0, -2097140, 0, 0, -2031604, 0, 0, -1966069, 0, 0, -1900533, 0, 0, -1834997, 0, 0, -1769461, 0, 0, -1703925, 0, 0, -1638389, 0, 0, -1835002, 0, 0, -1769466, 0, 0, -1703930, 0, 0, -1638394, 0, 0, -1572858, 0, 0, -1507322, 0, 0, -1507321, 0, 0, -1572857, 0, 0, -1638393, 0, 0, -1703929, 0, 0, -1769465, 0, 0, -1835001, 0, 0, -2031606, 0, 0, -2031607, 0, 0, -2031608, 0, 0, -2031609, 0, 0, -2031610, 0, 0, -2031611, 0, 0, -2097148, 0, 0, -2097149, 0, 0, -2097150, 0, 0, -2097151, 0, 0, -2097152, 0, 0, -2031617, 0, 0, -2031618, 0, 0, -2031619, 0, 0, -2031620, 0, 0, -1966084, 0, 0, -1966085, 0, 0, -1966086, 0, 0, -1966087, 0, 0, -1966088, 0, 0, -1966089, 0, 0, -1966090, 0, 0, -2031626, 0, 0, -2031625, 0, 0, -2031624, 0, 0, -2031623, 0, 0, -2031622, 0, 0, -2031621, 0, 0, -2031616, 0, 0, -2031615, 0, 0, -2031614, 0, 0, -2031613, 0, 0, -2031612, 0, 0, -1966083, 0, 0, -1966082, 0, 0, -1966081, 0, 0, -2097147, 0, 0, -2097146, 0, 0, -2097145, 0, 0, -2097144, 0, 0, -2097143, 0, 0, -2097142, 0, 0, -1572872, 0, 0, -1572871, 0, 0, -1572870, 0, 0, -1572869, 0, 0, -1572868, 0, 0, -1572867, 0, 0, -1572866, 0, 0, -1638402, 0, 0, -1638403, 0, 0, -1638404, 0, 0, -1638405, 0, 0, -1638406, 0, 0, -1638407, 0, 0, -1638408, 0, 0, -851986, 0, 0, -851985, 0, 0, -851984, 0, 0, -851983, 0, 0, -851982, 0, 0, -851981, 0, 0, -851980, 0, 0, -851979, 0, 0, -917515, 0, 0, -917516, 0, 0, -917517, 0, 0, -917518, 0, 0, -917519, 0, 0, -917520, 0, 0, -917521, 0, 0, -917522, 0, 0, -851989, 0, 0, -851988, 0, 0, -851987, 0, 0, -917523, 0, 0, -917524, 0, 0, -917525, 0, 0, -1900554, 0, 0, -1835018, 0, 0, -1769482, 0, 0, -1703946, 0, 0, -1638410, 0, 0, -1572874, 0, 0, -1507338, 0, 0, -1441802, 0, 0, -1376266, 0, 0, -1310730, 0, 0, -1245194, 0, 0, -1245193, 0, 0, -1310729, 0, 0, -1376265, 0, 0, -1441801, 0, 0, -1507337, 0, 0, -1572873, 0, 0, -1638409, 0, 0, -1703945, 0, 0, -1769481, 0, 0, -1835017, 0, 0, -1900553, 0, 0, -2555914, 0, 0, -2490378, 0, 0, -2490377, 0, 0, -2490376, 0, 0, -2490375, 0, 0, -2490374, 0, 0, -2490373, 0, 0, -2490372, 0, 0, -2490371, 0, 0, -2490370, 0, 0, -2490369, 0, 0, -2555905, 0, 0, -2555906, 0, 0, -2555907, 0, 0, -2555908, 0, 0, -2555909, 0, 0, -2555910, 0, 0, -2555911, 0, 0, -2555912, 0, 0, -2555913, 0, 0, -2555915, 0, 0, -2490379, 0, 0, -851990, 0, 0, -917526, 0, 0, -983062, 0, 0, -1048598, 0, 0, -1114134, 0, 0, -1179670, 0, 0, -1245206, 0, 0, -1310742, 0, 0, -1376278, 0, 0, -1441814, 0, 0, -1507350, 0, 0, -1572886, 0, 0, -1638422, 0, 0, -1703958, 0, 0, -1769494, 0, 0, -1835030, 0, 0, -1900566, 0, 0, -1966102, 0, 0, -2031638, 0, 0, -2097174, 0, 0, -2162710, 0, 0, -2228246, 0, 0, -2293782, 0, 0, -2359318, 0, 0, -2424854, 0, 0, -2490390, 0, 0, -2555926, 0, 0, -2555927, 0, 0, -2490391, 0, 0, -2424855, 0, 0, -2359319, 0, 0, -2293783, 0, 0, -2228247, 0, 0, -2162711, 0, 0, -2097175, 0, 0, -2031639, 0, 0, -1966103, 0, 0, -1900567, 0, 0, -1835031, 0, 0, -1769495, 0, 0, -1703959, 0, 0, -1638423, 0, 0, -1572887, 0, 0, -1507351, 0, 0, -1441815, 0, 0, -1376279, 0, 0, -1310743, 0, 0, -1245207, 0, 0, -1179671, 0, 0, -983063, 0, 0, -917527, 0, 0, -851991, 0, 0, -1048599, 0, 0, -1114135, 0, 0, -2621462, 0, 0, -2686998, 0, 0, -2752534, 0, 0, -2818070, 0, 0, -2883606, 0, 0, -2949142, 0, 0, -3014678, 0, 0, -3014679, 0, 0, -2949143, 0, 0, -2883607, 0, 0, -2818071, 0, 0, -2752535, 0, 0, -2686999, 0, 0, -2621463, 0, 0, -2621450, 0, 0, -2686986, 0, 0, -2686987, 0, 0, -2752523, 0, 0, -2818059, 0, 0, -2818058, 0, 0, -2752522, 0, 0, -2621451, 0, 0, -2883595, 0, 0, -2949131, 0, 0, -2949130, 0, 0, -3014666, 0, 0, -3014667, 0, 0, -2883594, 0, 0, -2162685, 0, 0, -2228221, 0, 0, -2293757, 0, 0, -2359293, 0, 0, -2424829, 0, 0, -2490365, 0, 0, -2555901, 0, 0, -2621437, 0, 0, -2686973, 0, 0, -2752509, 0, 0, -2818045, 0, 0, -2883581, 0, 0, -2949117, 0, 0, -3014653, 0, 0, -3080189, 0, 0, -3080188, 0, 0, -3014652, 0, 0, -2949116, 0, 0, -2883580, 0, 0, -2818044, 0, 0, -2752508, 0, 0, -2686972, 0, 0, -2162684, 0, 0, -2228220, 0, 0, -2293756, 0, 0, -2359292, 0, 0, -2424828, 0, 0, -2490364, 0, 0, -2555900, 0, 0, -2621436, 0, 0, -3080203, 0, 0, -3080202, 0, 0, -3080201, 0, 0, -3080200, 0, 0, -3080199, 0, 0, -3080198, 0, 0, -3080193, 0, 0, -3145728, 0, 0, -3145727, 0, 0, -3145726, 0, 0, -3145725, 0, 0, -3145724, 0, 0, -3211260, 0, 0, -3211261, 0, 0, -3211262, 0, 0, -3211263, 0, 0, -3211264, 0, 0, -3145729, 0, 0, -3145734, 0, 0, -3145735, 0, 0, -3145736, 0, 0, -3145737, 0, 0, -3145738, 0, 0, -3145739, 0, 0, -3211270, 0, 0, -3276806, 0, 0, -3342342, 0, 0, -3407878, 0, 0, -3407877, 0, 0, -3407876, 0, 0, -3407875, 0, 0, -3407874, 0, 0, -3407873, 0, 0, -3342337, 0, 0, -3276801, 0, 0, -3211265, 0, 0, -3276800, 0, 0, -3342336, 0, 0, -3407872, 0, 0, -3473408, 0, 0, -3538944, 0, 0, -3473409, 0, 0, -3473410, 0, 0, -3473411, 0, 0, -3473412, 0, 0, -3473413, 0, 0, -3473414, 0, 0, -3473415, 0, 0, -3407879, 0, 0, -3342343, 0, 0, -3276807, 0, 0, -3211271, 0, 0, -3145733, 0, 0, -3080197, 0, 0, -3145730, 0, 0, -3080194, 0, 0, -1245205, 0, 0, -1245204, 0, 0, -1245203, 0, 0, -1245202, 0, 0, -1245201, 0, 0, -1245200, 0, 0, -1310736, 0, 0, -1310737, 0, 0, -1310738, 0, 0, -1310739, 0, 0, -1310740, 0, 0, -1310741, 0, 0, -1507344, 0, 0, -1507343, 0, 0, -1507342, 0, 0, -1507341, 0, 0, -1572877, 0, 0, -1572878, 0, 0, -1572879, 0, 0, -1572880, 0, 0, -1835029, 0, 0, -1835028, 0, 0, -1835027, 0, 0, -1835026, 0, 0, -1835025, 0, 0, -1900561, 0, 0, -1900562, 0, 0, -1900563, 0, 0, -1900564, 0, 0, -1900565, 0, 0, -2359311, 0, 0, -2293775, 0, 0, -2293774, 0, 0, -2293773, 0, 0, -2293772, 0, 0, -2293771, 0, 0, -2293770, 0, 0, -2293769, 0, 0, -2359305, 0, 0, -2359306, 0, 0, -2359307, 0, 0, -2359308, 0, 0, -2359309, 0, 0, -2359310, 0, 0, -1966094, 0, 0, -2031630, 0, 0, -2031629, 0, 0, -1966093, 0, 0, -2359317, 0, 0, -2359316, 0, 0, -2293780, 0, 0, -2293781, 0, 0)
 
-[node name="NOTouchZone" parent="." unique_id=337766028 node_paths=PackedStringArray("RespawnPoint") instance=ExtResource("6_7rxco")]
+[node name="NOTouchZone4" parent="." unique_id=1563560194 node_paths=PackedStringArray("RespawnPoint") instance=ExtResource("6_7rxco")]
+position = Vector2(-138, -200)
+scale = Vector2(1.2, 0.4)
+RespawnPoint = NodePath("../Respawn2")
+
+[node name="NOTouchZone" parent="." unique_id=2096509762 node_paths=PackedStringArray("RespawnPoint") instance=ExtResource("6_7rxco")]
 position = Vector2(54.000004, -22)
 scale = Vector2(4.8, 0.3)
 RespawnPoint = NodePath("../Respawn1")
@@ -58,9 +578,17 @@ position = Vector2(54, -152)
 scale = Vector2(5.2000003, 0.5)
 RespawnPoint = NodePath("../Respawn1")
 
+[node name="NOTouchZone5" parent="." unique_id=800421565 node_paths=PackedStringArray("RespawnPoint") instance=ExtResource("6_7rxco")]
+position = Vector2(-9, 291)
+scale = Vector2(1.5, 7.2000003)
+RespawnPoint = NodePath("../Respawn1")
+
 [node name="NOTouchZone3" parent="." unique_id=1827662169 node_paths=PackedStringArray("RespawnPoint") instance=ExtResource("6_7rxco")]
 position = Vector2(266, -285)
 RespawnPoint = NodePath("../Respawn1")
+
+[node name="Portal" parent="." unique_id=1910244420 instance=ExtResource("7_7rxco")]
+position = Vector2(-122, -686)
 
 [node name="Spike" parent="." unique_id=1197322424 node_paths=PackedStringArray("RespawnPoint") instance=ExtResource("2_dbx23")]
 position = Vector2(109, 139)
@@ -74,8 +602,59 @@ collision_layer = 5
 collision_mask = 5
 RespawnPoint = NodePath("../Respawn1")
 
+[node name="Spike4" parent="." unique_id=306555153 node_paths=PackedStringArray("RespawnPoint") instance=ExtResource("2_dbx23")]
+position = Vector2(-82, -103)
+collision_layer = 5
+collision_mask = 5
+RespawnPoint = NodePath("../Respawn2")
+
 [node name="Respawn1" type="Node2D" parent="." unique_id=1409550423]
 position = Vector2(140, 93)
+
+[node name="Respawn3" type="Node2D" parent="." unique_id=465609440]
+position = Vector2(-156, -267)
+
+[node name="Respawn2" type="Node2D" parent="." unique_id=647914884]
+position = Vector2(-64, -55)
+
+[node name="Spike7" parent="." unique_id=260005549 node_paths=PackedStringArray("RespawnPoint") instance=ExtResource("2_dbx23")]
+position = Vector2(-50, -229)
+collision_layer = 5
+collision_mask = 5
+RespawnPoint = NodePath("../Respawn2")
+
+[node name="Spike7" parent="Spike7" unique_id=75219699 node_paths=PackedStringArray("RespawnPoint") instance=ExtResource("2_dbx23")]
+position = Vector2(216, -200)
+rotation = -1.5707964
+collision_layer = 5
+collision_mask = 5
+RespawnPoint = NodePath("../../Respawn2")
+
+[node name="Spike7" parent="Spike7/Spike7" unique_id=273784102 node_paths=PackedStringArray("RespawnPoint") instance=ExtResource("2_dbx23")]
+position = Vector2(-52, -48)
+rotation = -3.1415927
+collision_layer = 5
+collision_mask = 5
+RespawnPoint = NodePath("../../../Respawn2")
+
+[node name="Spike9" parent="." unique_id=634473298 node_paths=PackedStringArray("RespawnPoint") instance=ExtResource("2_dbx23")]
+position = Vector2(-86, -374)
+rotation = -3.1415925
+collision_layer = 5
+collision_mask = 5
+RespawnPoint = NodePath("../Respawn2")
+
+[node name="Spike10" parent="." unique_id=1325394217 node_paths=PackedStringArray("RespawnPoint") instance=ExtResource("2_dbx23")]
+position = Vector2(261, 154)
+collision_layer = 5
+collision_mask = 5
+RespawnPoint = NodePath("../Respawn1")
+
+[node name="Spike8" parent="." unique_id=1370376752 node_paths=PackedStringArray("RespawnPoint") instance=ExtResource("2_dbx23")]
+position = Vector2(-83, -230)
+collision_layer = 5
+collision_mask = 5
+RespawnPoint = NodePath("../Respawn2")
 
 [node name="Spike3" parent="." unique_id=100690151 node_paths=PackedStringArray("RespawnPoint") instance=ExtResource("2_dbx23")]
 position = Vector2(206, -37)
@@ -83,14 +662,41 @@ collision_layer = 5
 collision_mask = 5
 RespawnPoint = NodePath("../Respawn1")
 
+[node name="Spike6" parent="." unique_id=1543880750 node_paths=PackedStringArray("RespawnPoint") instance=ExtResource("2_dbx23")]
+position = Vector2(-170, 78)
+rotation = 1.5707964
+collision_layer = 5
+collision_mask = 5
+RespawnPoint = NodePath("../Respawn2")
+
 [node name="Spike5" parent="." unique_id=534345625 node_paths=PackedStringArray("RespawnPoint") instance=ExtResource("2_dbx23")]
 position = Vector2(126, -37)
 collision_layer = 5
 collision_mask = 5
 RespawnPoint = NodePath("../Respawn1")
 
-[node name="Ball" parent="." unique_id=1931487699 instance=ExtResource("6_bmf8x")]
+[node name="Ball4" parent="." unique_id=1931487699 instance=ExtResource("6_bmf8x")]
+position = Vector2(-151, 10)
+collision_layer = 5
+collision_mask = 5
+
+[node name="Ball" parent="." unique_id=1635497945 instance=ExtResource("6_bmf8x")]
 position = Vector2(260, 72)
+collision_layer = 5
+collision_mask = 5
+
+[node name="Ball5" parent="." unique_id=1115800685 instance=ExtResource("6_bmf8x")]
+position = Vector2(150, -204)
+collision_layer = 5
+collision_mask = 5
+
+[node name="Ball6" parent="." unique_id=1467985686 instance=ExtResource("6_bmf8x")]
+position = Vector2(136, -228)
+collision_layer = 5
+collision_mask = 5
+
+[node name="Ball7" parent="." unique_id=1254797045 instance=ExtResource("6_bmf8x")]
+position = Vector2(120, -204)
 collision_layer = 5
 collision_mask = 5
 
@@ -99,7 +705,80 @@ position = Vector2(71, -135)
 collision_layer = 5
 collision_mask = 5
 
+[node name="Ball13" parent="." unique_id=686487611 instance=ExtResource("6_bmf8x")]
+position = Vector2(-325, -418)
+collision_layer = 5
+collision_mask = 5
+
+[node name="Ball12" parent="." unique_id=1081420502 instance=ExtResource("6_bmf8x")]
+position = Vector2(-120, -567)
+collision_layer = 5
+collision_mask = 5
+
+[node name="Ball11" parent="." unique_id=1207431367 instance=ExtResource("6_bmf8x")]
+position = Vector2(-59, -800)
+collision_layer = 5
+collision_mask = 5
+
+[node name="Ball10" parent="." unique_id=153199896 instance=ExtResource("6_bmf8x")]
+position = Vector2(-234, -597)
+collision_layer = 5
+collision_mask = 5
+
+[node name="Ball9" parent="." unique_id=724845230 instance=ExtResource("6_bmf8x")]
+position = Vector2(-299, -284)
+collision_layer = 5
+collision_mask = 5
+
+[node name="Ball8" parent="." unique_id=1578602435 instance=ExtResource("6_bmf8x")]
+position = Vector2(-155, -245)
+collision_layer = 5
+collision_mask = 5
+
 [node name="Ball3" parent="." unique_id=920341963 instance=ExtResource("6_bmf8x")]
 position = Vector2(-24, -135)
 collision_layer = 5
 collision_mask = 5
+
+[node name="NOTouchZone6" parent="." unique_id=588947261 node_paths=PackedStringArray("RespawnPoint") instance=ExtResource("6_7rxco")]
+position = Vector2(-138.00002, -470)
+scale = Vector2(4.6, 0.1)
+RespawnPoint = NodePath("../Respawn2")
+
+[node name="NOTouchZone7" parent="." unique_id=1011888618 node_paths=PackedStringArray("RespawnPoint") instance=ExtResource("6_7rxco")]
+position = Vector2(-341, -731)
+scale = Vector2(3.8, 1)
+RespawnPoint = NodePath("../Respawn3")
+
+[node name="Spike13" parent="." unique_id=1037718047 node_paths=PackedStringArray("RespawnPoint") instance=ExtResource("2_dbx23")]
+position = Vector2(-170, -308)
+rotation = -1.5707964
+RespawnPoint = NodePath("../Respawn3")
+
+[node name="Spike14" parent="." unique_id=2092837177 node_paths=PackedStringArray("RespawnPoint") instance=ExtResource("2_dbx23")]
+position = Vector2(-282, -438)
+rotation = 3.1415925
+RespawnPoint = NodePath("../Respawn3")
+
+[node name="Spike16" parent="." unique_id=1878613709 node_paths=PackedStringArray("RespawnPoint") instance=ExtResource("2_dbx23")]
+position = Vector2(-217, -470)
+rotation = 3.1415925
+RespawnPoint = NodePath("../Respawn3")
+
+[node name="Spike15" parent="." unique_id=976012582 node_paths=PackedStringArray("RespawnPoint") instance=ExtResource("2_dbx23")]
+position = Vector2(-217, -358)
+rotation = 3.1415925
+RespawnPoint = NodePath("../Respawn3")
+
+[node name="Spike12" parent="." unique_id=1958162928 node_paths=PackedStringArray("RespawnPoint") instance=ExtResource("2_dbx23")]
+position = Vector2(-274, -295)
+rotation = 3.1415925
+RespawnPoint = NodePath("../Respawn3")
+
+[node name="Spike11" parent="." unique_id=1821209836 node_paths=PackedStringArray("RespawnPoint") instance=ExtResource("2_dbx23")]
+position = Vector2(-323, -294)
+rotation = -3.1415927
+RespawnPoint = NodePath("../Respawn3")
+
+[node name="Character" parent="." unique_id=2144189251 instance=ExtResource("1_tu4c3")]
+position = Vector2(141, 97)

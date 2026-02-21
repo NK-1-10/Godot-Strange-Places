@@ -22,27 +22,53 @@ var MoveDir = 1
 var DashSpeed = 750
 var PowerUsed = false
 var natural = true
+var current_scene_name = ""
+
 
 func _Red1():
-	$"../background/ourple".visible = false
-	$"../background/blue".visible = false
-	$"../background/green".visible = false
-	$"../background/red".visible = true
+	if has_node("../background"):
+		$"../background/ourple".visible = false
+		$"../background/blue".visible = false
+		$"../background/green".visible = false
+		$"../background/red".visible = true
+	elif has_node("../BGround"):
+		$"../BGround/Purp".visible = false
+		$"../BGround/Blue".visible = false
+		$"../BGround/Green".visible = false
+		$"../BGround/Red".visible = true
 func _Blue1():
-	$"../background/ourple".visible = false
-	$"../background/blue".visible = true
-	$"../background/green".visible = false
-	$"../background/red".visible = false
+	if has_node("../background"):
+		$"../background/ourple".visible = false
+		$"../background/blue".visible = true
+		$"../background/green".visible = false
+		$"../background/red".visible = false
+	elif has_node("../BGround"):
+		$"../BGround/Purp".visible = false
+		$"../BGround/Blue".visible = true
+		$"../BGround/Green".visible = false
+		$"../BGround/Red".visible = true
 func _Purple1():
-	$"../background/ourple".visible = true
-	$"../background/blue".visible = false
-	$"../background/green".visible = false
-	$"../background/red".visible = false
+	if has_node("../background"):
+		$"../background/ourple".visible = true
+		$"../background/blue".visible = false
+		$"../background/green".visible = false
+		$"../background/red".visible = false
+	elif has_node("../BGround"):
+		$"../BGround/Purp".visible = true
+		$"../BGround/Blue".visible = false
+		$"../BGround/Green".visible = false
+		$"../BGround/Red".visible = true
 func _Green1():
-	$"../background/ourple".visible = false
-	$"../background/blue".visible = false
-	$"../background/green".visible = true
-	$"../background/red".visible = false
+	if has_node("../background"):
+		$"../background/ourple".visible = false
+		$"../background/blue".visible = false
+		$"../background/green".visible = true
+		$"../background/red".visible = false
+	elif has_node("../BGround"):
+		$"../BGround/Purp".visible = false
+		$"../BGround/Blue".visible = false
+		$"../BGround/Green".visible = true
+		$"../BGround/Red".visible = true
 
 func _ready() -> void:
 	SetColor()
@@ -61,6 +87,7 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("Dash") and !dashing and !PowerUsed and dash:
 		dashing = true
+		$Sounds/dash.play()
 		PowerUsed = true
 		get_node("DashLength").start()
 		SetColor()
@@ -173,6 +200,7 @@ func _on_jump_grace_timeout() -> void:
 	Can_Jump = false
 
 func SetColor():
+	current_scene_name = get_tree().current_scene.name
 	if(PowerUsed):
 		$ColorRect.color = Color(0.6, 0.2, 0.8, 1.0)
 		_Purple1()

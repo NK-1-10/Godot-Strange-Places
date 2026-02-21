@@ -126,22 +126,13 @@ anchors_preset = 0
 offset_right = 320.0
 offset_bottom = 184.0
 
-[node name="Label" type="Label" parent="Start" unique_id=1677059282]
-layout_mode = 0
-offset_top = 16.0
-offset_right = 320.0
-offset_bottom = 80.0
-text = "Gam gam"
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="Button" type="Button" parent="Start" unique_id=1288877723]
 layout_mode = 1
 anchors_preset = -1
-offset_left = 113.0
-offset_top = 88.0
-offset_right = 217.0
-offset_bottom = 112.0
+offset_left = 111.0
+offset_top = 80.0
+offset_right = 215.0
+offset_bottom = 104.0
 
 [node name="Label" type="Label" parent="Start/Button" unique_id=1005636371]
 layout_mode = 0
@@ -167,11 +158,12 @@ texture_normal = SubResource("GradientTexture2D_d3352")
 
 [node name="Label" type="Label" parent="LevelSelect/TextureButton" unique_id=885274872]
 layout_mode = 0
-offset_left = -16.0
+offset_left = -19.0
 offset_top = 32.0
-offset_right = 46.0
+offset_right = 57.0
 offset_bottom = 55.0
-text = "Grass land"
+scale = Vector2(0.90000004, 1)
+text = "Tutorial level"
 label_settings = SubResource("LabelSettings_ufv5y")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -190,26 +182,7 @@ offset_left = -16.0
 offset_top = 32.0
 offset_right = 46.0
 offset_bottom = 55.0
-text = "World 2"
-label_settings = SubResource("LabelSettings_ufv5y")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="TextureButton3" type="TextureButton" parent="LevelSelect" unique_id=457577693]
-layout_mode = 0
-offset_left = 224.0
-offset_top = 80.0
-offset_right = 256.0
-offset_bottom = 112.0
-texture_normal = SubResource("GradientTexture2D_d3352")
-
-[node name="Label" type="Label" parent="LevelSelect/TextureButton3" unique_id=975863987]
-layout_mode = 0
-offset_left = -16.0
-offset_top = 32.0
-offset_right = 46.0
-offset_bottom = 55.0
-text = "World 3"
+text = "Game"
 label_settings = SubResource("LabelSettings_ufv5y")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -220,4 +193,3 @@ libraries/ = SubResource("AnimationLibrary_3wf2c")
 [connection signal="button_down" from="Start/Button" to="." method="_on_button_button_down"]
 [connection signal="button_down" from="LevelSelect/TextureButton" to="." method="_on_texture_button_button_down"]
 [connection signal="button_down" from="LevelSelect/TextureButton2" to="." method="_on_texture_button_2_button_down"]
-[connection signal="button_down" from="LevelSelect/TextureButton3" to="." method="_on_texture_button_3_button_down"]

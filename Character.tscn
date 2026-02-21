@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://dvje7a5wex5hd" path="res://thud.mp3" id="4_atbvg"]
 [ext_resource type="AudioStream" uid="uid://d3obdbcqrmvd3" path="res://reverse.wav" id="5_cxxw8"]
 [ext_resource type="AudioStream" uid="uid://dgsv2sad434ob" path="res://ding.mp3" id="6_e24yd"]
+[ext_resource type="AudioStream" uid="uid://cwh7i4s3qiocu" path="res://dash.mp3" id="7_5gddd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1bvp3"]
 size = Vector2(16, 16)
@@ -152,6 +153,7 @@ stream = ExtResource("5_cxxw8")
 stream = ExtResource("6_e24yd")
 
 [node name="dash" type="AudioStreamPlayer2D" parent="Sounds" unique_id=996920768]
+stream = ExtResource("7_5gddd")
 
 [connection signal="area_entered" from="OuchOuchBox" to="." method="_on_ouch_ouch_box_area_entered"]
 [connection signal="area_entered" from="Orb_Detector" to="." method="_on_orb_detector_area_entered"]
