@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://52u72olcyoe1"]
+
+[node name="Done" type="Node2D" unique_id=851438655]
+
+[node name="Button" type="Button" parent="." unique_id=2091514]
+anchors_preset = -1
+offset_left = 112.0
+offset_top = 94.0
+offset_right = 216.0
+offset_bottom = 118.0
+
+[node name="Label" type="Label" parent="Button" unique_id=1926062460]
+layout_mode = 0
+offset_top = -42.0
+offset_right = 107.0
+offset_bottom = -19.0
+text = "You died"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Restart level" type="Label" parent="Button" unique_id=2085835005]
+layout_mode = 0
+offset_right = 107.0
+offset_bottom = 23.0
+text = "You died"
+horizontal_alignment = 1
+vertical_alignment = 1

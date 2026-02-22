@@ -587,9 +587,6 @@ RespawnPoint = NodePath("../Respawn1")
 position = Vector2(266, -285)
 RespawnPoint = NodePath("../Respawn1")
 
-[node name="Portal" parent="." unique_id=1910244420 instance=ExtResource("7_7rxco")]
-position = Vector2(-122, -686)
-
 [node name="Spike" parent="." unique_id=1197322424 node_paths=PackedStringArray("RespawnPoint") instance=ExtResource("2_dbx23")]
 position = Vector2(109, 139)
 collision_layer = 5
@@ -617,25 +614,25 @@ position = Vector2(-156, -267)
 [node name="Respawn2" type="Node2D" parent="." unique_id=647914884]
 position = Vector2(-64, -55)
 
+[node name="Spike17" parent="." unique_id=273784102 node_paths=PackedStringArray("RespawnPoint") instance=ExtResource("2_dbx23")]
+position = Vector2(118, -377)
+rotation = 1.5707963
+collision_layer = 5
+collision_mask = 5
+RespawnPoint = NodePath("../Respawn2")
+
+[node name="Spike18" parent="." unique_id=75219699 node_paths=PackedStringArray("RespawnPoint") instance=ExtResource("2_dbx23")]
+position = Vector2(166, -429)
+rotation = -1.5707964
+collision_layer = 5
+collision_mask = 5
+RespawnPoint = NodePath("../Respawn2")
+
 [node name="Spike7" parent="." unique_id=260005549 node_paths=PackedStringArray("RespawnPoint") instance=ExtResource("2_dbx23")]
 position = Vector2(-50, -229)
 collision_layer = 5
 collision_mask = 5
 RespawnPoint = NodePath("../Respawn2")
-
-[node name="Spike7" parent="Spike7" unique_id=75219699 node_paths=PackedStringArray("RespawnPoint") instance=ExtResource("2_dbx23")]
-position = Vector2(216, -200)
-rotation = -1.5707964
-collision_layer = 5
-collision_mask = 5
-RespawnPoint = NodePath("../../Respawn2")
-
-[node name="Spike7" parent="Spike7/Spike7" unique_id=273784102 node_paths=PackedStringArray("RespawnPoint") instance=ExtResource("2_dbx23")]
-position = Vector2(-52, -48)
-rotation = -3.1415927
-collision_layer = 5
-collision_mask = 5
-RespawnPoint = NodePath("../../../Respawn2")
 
 [node name="Spike9" parent="." unique_id=634473298 node_paths=PackedStringArray("RespawnPoint") instance=ExtResource("2_dbx23")]
 position = Vector2(-86, -374)
@@ -779,6 +776,13 @@ RespawnPoint = NodePath("../Respawn3")
 position = Vector2(-323, -294)
 rotation = -3.1415927
 RespawnPoint = NodePath("../Respawn3")
+
+[node name="Portal" parent="." unique_id=1910244420 instance=ExtResource("7_7rxco")]
+light_mask = 5
+visibility_layer = 5
+position = Vector2(-122, -686)
+collision_layer = 5
+collision_mask = 5
 
 [node name="Character" parent="." unique_id=2144189251 instance=ExtResource("1_tu4c3")]
 position = Vector2(141, 97)

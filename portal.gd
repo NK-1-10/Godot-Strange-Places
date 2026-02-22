@@ -11,5 +11,9 @@ func _process(delta: float) -> void:
 	pass
 
 func _on_body_entered(body: Node2D) -> void:
-	if body.name == "Character":
-		Global.In("res://StartMenu.tscn")
+	if has_node("../background"):
+		if body.name == "Character":
+			Global.In("res://StartMenu.tscn")
+	elif has_node("../BGround"):
+		if body.name == "Character":
+			Global.In("res://end.tscn")

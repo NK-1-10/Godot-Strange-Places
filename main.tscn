@@ -5,7 +5,6 @@
 [ext_resource type="PackedScene" uid="uid://d3qi7nyfotbdy" path="res://text_player.tscn" id="3_h2yge"]
 [ext_resource type="PackedScene" uid="uid://468ojndhyc71" path="res://camera_zone.tscn" id="4_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://ssv2yrdtvcpt" path="res://one_way_hitbox.tscn" id="5_lquwl"]
-[ext_resource type="PackedScene" uid="uid://h8rw4c0xf32" path="res://orb.tscn" id="6_7mycd"]
 [ext_resource type="Texture2D" uid="uid://cpn5662t0akpa" path="res://pixil-frame-0.png" id="7_272bh"]
 [ext_resource type="PackedScene" uid="uid://w03uvpej14wp" path="res://no_touch_zone.tscn" id="8_5vw27"]
 [ext_resource type="PackedScene" uid="uid://bwgcds6xgn7d3" path="res://ball.tscn" id="9_kek77"]
@@ -81,7 +80,6 @@ rotation = -0.5235988
 color = Color(0.020461904, 0.16741407, 0.19211432, 1)
 
 [node name="ourple" type="Node2D" parent="background" unique_id=1891916821]
-visible = false
 
 [node name="Base" type="ColorRect" parent="background/ourple" unique_id=38451259]
 offset_left = -551.0
@@ -251,9 +249,6 @@ offset_right = -79.0
 offset_bottom = -85.0
 text = "Ok, let's press E, shall we?"
 
-[node name="Character" parent="." unique_id=2144189251 instance=ExtResource("1_ig7tw")]
-position = Vector2(-348, 140)
-
 [node name="TextPlayer" parent="." unique_id=1880392516 instance=ExtResource("3_h2yge")]
 position = Vector2(216, 112)
 TextLines = ["Hey", "You seem lost", "Text3"]
@@ -284,14 +279,6 @@ scale = Vector2(5, 0.25)
 offset_left = -9.599994
 offset_top = -8.0
 offset_right = 11.200006
-
-[node name="Orb" parent="." unique_id=1868009222 instance=ExtResource("6_7mycd")]
-position = Vector2(87, 142)
-RespawnTime = 2
-
-[node name="Orb2" parent="." unique_id=1011317963 instance=ExtResource("6_7mycd")]
-position = Vector2(-70, -71)
-RespawnTime = 1
 
 [node name="Respawn1" type="Node2D" parent="." unique_id=1010280719]
 position = Vector2(-347, 104)
@@ -335,7 +322,7 @@ scale = Vector2(6.9599986, 1)
 RespawnPoint = NodePath("../Respawn2")
 
 [node name="NOTouchZone" parent="." unique_id=337766028 node_paths=PackedStringArray("RespawnPoint") instance=ExtResource("8_5vw27")]
-position = Vector2(-296, -226)
+position = Vector2(-295, -226)
 scale = Vector2(6.8, 0.4)
 collision_layer = 4
 collision_mask = 4
@@ -355,3 +342,6 @@ collision_mask = 5
 position = Vector2(-237, 33)
 collision_layer = 4
 collision_mask = 4
+
+[node name="Character" parent="." unique_id=2144189251 instance=ExtResource("1_ig7tw")]
+position = Vector2(-348, 140)

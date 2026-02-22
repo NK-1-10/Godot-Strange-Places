@@ -1,6 +1,5 @@
 extends CharacterBody2D
 
-
 const Max_SPEED = 250.0
 const JUMP_VELOCITY = -400.0
 const Acceleration = 100
@@ -10,198 +9,154 @@ const Deceleration = 0.2
 @onready var RunParticles = $Particles/RunParticles
 @onready var JumpParticles = $Particles/JumpParticles
 
-
 var Wants_jump = false
 var Can_Jump = false
-
-var AntiG = false;
-var doubleJump = false;
-var dash = false;
+var AntiG = false
+var doubleJump = false
+var dash = false
 var dashing = false
 var MoveDir = 1
 var DashSpeed = 750
 var PowerUsed = false
 var natural = true
-var current_scene_name = ""
-
-
-func _Red1():
-	if has_node("../background"):
-		$"../background/ourple".visible = false
-		$"../background/blue".visible = false
-		$"../background/green".visible = false
-		$"../background/red".visible = true
-	elif has_node("../BGround"):
-		$"../BGround/Purp".visible = false
-		$"../BGround/Blue".visible = false
-		$"../BGround/Green".visible = false
-		$"../BGround/Red".visible = true
-func _Blue1():
-	if has_node("../background"):
-		$"../background/ourple".visible = false
-		$"../background/blue".visible = true
-		$"../background/green".visible = false
-		$"../background/red".visible = false
-	elif has_node("../BGround"):
-		$"../BGround/Purp".visible = false
-		$"../BGround/Blue".visible = true
-		$"../BGround/Green".visible = false
-		$"../BGround/Red".visible = true
-func _Purple1():
-	if has_node("../background"):
-		$"../background/ourple".visible = true
-		$"../background/blue".visible = false
-		$"../background/green".visible = false
-		$"../background/red".visible = false
-	elif has_node("../BGround"):
-		$"../BGround/Purp".visible = true
-		$"../BGround/Blue".visible = false
-		$"../BGround/Green".visible = false
-		$"../BGround/Red".visible = true
-func _Green1():
-	if has_node("../background"):
-		$"../background/ourple".visible = false
-		$"../background/blue".visible = false
-		$"../background/green".visible = true
-		$"../background/red".visible = false
-	elif has_node("../BGround"):
-		$"../BGround/Purp".visible = false
-		$"../BGround/Blue".visible = false
-		$"../BGround/Green".visible = true
-		$"../BGround/Red".visible = true
 
 func _ready() -> void:
-	SetColor()
+	$CanvasLayer/Death.visible = false
 	add_to_group("Character")
-	natural = true;
+	SetColor()
+	natural = true
 	_Purple1()
-	
-	
-	if natural == true:
-		var AntiG = false;
-		var doubleJump = false;
-		var dash = false;
-
-
+	in_Main_Levels()
 
 func _physics_process(delta: float) -> void:
+	# DASH KONTROLE
 	if Input.is_action_just_pressed("Dash") and !dashing and !PowerUsed and dash:
+		if has_node("Sounds/dash"):
+			$Sounds/dash.play()
 		dashing = true
-		$Sounds/dash.play()
 		PowerUsed = true
 		get_node("DashLength").start()
 		SetColor()
 	
 	if dashing:
-		velocity = Vector2(DashSpeed*MoveDir, 0);
+		velocity = Vector2(DashSpeed * MoveDir, 0)
 		move_and_slide()
 		return
 	
-	if AntiG == false:
+	# GRAVITĀCIJA
+	if !AntiG:
 		velocity += get_gravity() * delta
 		up_direction = Vector2.UP
-		natural = true;
-	
-	if AntiG == true:
+	else:
 		velocity += get_gravity() * delta * -1
 		up_direction = Vector2.DOWN
 	
-	
+	# GRAVITĀCIJAS MAIŅA
 	if Input.is_action_just_pressed("ReverseGravity"):
-		$Sounds/AntiGSound.play();
-		if AntiG == true:
-			natural = true;
-			AntiG = false;
+		if has_node("Sounds/AntiGSound"):
+			$Sounds/AntiGSound.play()
+		if AntiG:
+			natural = true
+			AntiG = false
 			dash = true
 			Particles.position = Vector2(0, 8)
-			SetColor()
-		elif AntiG == false:
-			AntiG = true;
-			doubleJump = false;
+		else:
+			AntiG = true
+			doubleJump = false
 			dash = false
 			Particles.position = Vector2(0, -8)
-			SetColor()
+		SetColor()
 
-
-	#Ejam augšā un palaiž vaļā
+	# LĒCIENA GARUMA KONTROLE
 	if Input.is_action_just_released("Jump"):
-		if AntiG == false and velocity.y <0:
-			velocity.y *= 0.5
-		elif AntiG == true and velocity.y > 0:
+		if (!AntiG and velocity.y < 0) or (AntiG and velocity.y > 0):
 			velocity.y *= 0.5
 	
-		
-	
-	
-	if(is_on_floor()):
+	# ZEMES PĀRBAUDE
+	if is_on_floor() or (AntiG and is_on_ceiling()):
 		Can_Jump = true
-		if(PowerUsed):
-			PowerUsed=false
+		if PowerUsed:
+			PowerUsed = false
 			SetColor()
-		
 		get_node("JumpGrace").stop()
 	else:
-		if(get_node("JumpGrace").is_stopped()):
+		if get_node("JumpGrace").is_stopped():
 			get_node("JumpGrace").start()
 	
-	
-	# Handle jump.
+	# LĒKŠANA
 	if Input.is_action_just_pressed("Jump"):
 		Wants_jump = true
 		get_node("JumpBuffer").start()
 	
 	if Wants_jump:
-		var jump_force = JUMP_VELOCITY
-		if AntiG:
-			jump_force = -JUMP_VELOCITY #I think šitas dabū upside down jump. correct me if im wrong :>
+		var jump_force = JUMP_VELOCITY if !AntiG else -JUMP_VELOCITY
 		if Can_Jump:
-			JumpParticles.emitting = false
-			$Sounds/JumpSound.play()
-			JumpParticles.emitting = true
+			if has_node("Sounds/JumpSound"):
+				$Sounds/JumpSound.play()
 			Wants_jump = false
 			Can_Jump = false
 			velocity.y = jump_force
-		elif !PowerUsed && doubleJump:
-			JumpParticles.emitting = false
 			JumpParticles.emitting = true
+		elif !PowerUsed && doubleJump:
 			velocity.y = jump_force
 			Wants_jump = false
 			PowerUsed = true
+			JumpParticles.emitting = true
 			SetColor()
 	
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
+	# KUSTĪBA (PA KREISI / PA LABI)
 	var direction := Input.get_axis("Left", "Right")
-	
 	if direction:
 		MoveDir = direction
 		velocity.x += direction * Acceleration
-		if(abs(velocity.x) > Max_SPEED):
+		if abs(velocity.x) > Max_SPEED:
 			velocity.x = Max_SPEED * direction
 	else:
 		velocity.x -= velocity.x * Deceleration
-		if(abs(velocity.x) < 50):
+		if abs(velocity.x) < 50:
 			velocity.x = 0
 	
-	if velocity.x != 0:
-		RunParticles.gravity = Vector2(-90 * MoveDir, 0)
-		RunParticles.emitting = true
-	else:
-		RunParticles.gravity = Vector2(-90 * MoveDir, 0)
-		RunParticles.emitting = false
+	RunParticles.emitting = velocity.x != 0
+	RunParticles.gravity = Vector2(-90 * MoveDir, 0)
 	
 	move_and_slide()
 
+func reset_player_state():
+	velocity = Vector2.ZERO
+	AntiG = false
+	doubleJump = false
+	dash = false
+	dashing = false
+	PowerUsed = false
+	natural = true
+	up_direction = Vector2.UP
+	Particles.position = Vector2(0, 8)
+	SetColor()
 
-func _on_jump_buffer_timeout() -> void:
-	Wants_jump = false
-
-func _on_jump_grace_timeout() -> void:
-	Can_Jump = false
+func _on_ouch_ouch_box_area_entered(area: Area2D) -> void:
+	# SADURSME AR ĒRKŠĶIEM / NĀVE
+	if area.is_in_group("spikes") || area.is_in_group("NoZone"):
+		if has_node("Sounds/SpikeDeathSound"):
+			$Sounds/SpikeDeathSound.play()
+		$DeadParticles.color = $ColorRect.color
+		$DeadParticles.emitting = true
+		
+		reset_player_state()
+		
+		if area.get("RespawnPoint") != null:
+			global_position = area.RespawnPoint.global_position
+			
+		$CanvasLayer/Death.visible = true
+		get_tree().paused = true
+	
+	# VIENKĀRŠA BUMBU SAVĀKŠANA (bez UI)
+	if area.is_in_group("balls"):
+		if has_node("Sounds/DingSound"):
+			$Sounds/DingSound.play()
+		area.queue_free()
 
 func SetColor():
-	current_scene_name = get_tree().current_scene.name
-	if(PowerUsed):
+	if PowerUsed:
 		$ColorRect.color = Color(0.6, 0.2, 0.8, 1.0)
 		_Purple1()
 	elif AntiG:
@@ -213,55 +168,49 @@ func SetColor():
 	elif dash:
 		$ColorRect.color = Color(0.148, 0.481, 0.85, 1.0)
 		_Blue1()
-	elif natural :
+	elif natural:
 		$ColorRect.color = Color(0.6, 0.2, 0.8, 1.0)
 		_Purple1()
-		
 	get_tree().call_group("balls", "update_visuals", doubleJump, AntiG, dash)
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 
 func _input(event):
 	if event.is_action_pressed("Switch") and Can_Jump:
-		if doubleJump:
-			dash = true
-			doubleJump = false
-			SetColor()
-		else:
-			doubleJump = true
-			dash = false
-			SetColor()
+		doubleJump = !doubleJump
+		dash = !doubleJump
+		SetColor()
 
+func in_Main_Levels():
+	if has_node("../background") || has_node("../BGround"):
+		if has_node("Sounds/Background music"):
+			$"Sounds/Background music".play()
+	if natural:
+		AntiG = false
+		doubleJump = false
+		dash = false
 
-func _on_ouch_ouch_box_area_entered(area: Area2D) -> void:
-	if area.is_in_group("spikes") || area.is_in_group("NoZone"):
-		$Sounds/SpikeDeathSound.play()
-		$DeadParticles.color = $ColorRect.color
-		$DeadParticles.emitting = true
-		global_position = area.RespawnPoint.global_position 
-	
-	if area.is_in_group("balls"):
-		$Sounds/DingSound.play() 
-		area.queue_free() # Bumba pazūd
+func _handle_bg(mode: String):
+	var bgs = [get_node_or_null("../background"), get_node_or_null("../BGround")]
+	for bg in bgs:
+		if bg:
+			for child in bg.get_children():
+				var is_target = child.name.to_lower().contains(mode.to_lower())
+				child.visible = is_target
 
+func _Red1(): _handle_bg("red")
+func _Blue1(): _handle_bg("blue")
+func _Purple1(): _handle_bg("purp")
+func _Green1(): _handle_bg("green")
 
-func _on_orb_detector_area_entered(area: Area2D) -> void:
-	if velocity.y > 0:
-		velocity.y = -60
-	
-	if(PowerUsed):
+func _on_button_pressed():
+	get_tree().paused = false
+	$CanvasLayer/Death.visible = false
+
+func _on_jump_buffer_timeout(): Wants_jump = false
+func _on_jump_grace_timeout(): Can_Jump = false
+func _on_dash_length_timeout(): dashing = false
+
+func _on_orb_detector_area_entered(_area):
+	if velocity.y > 0: velocity.y = -60
+	if PowerUsed:
 		PowerUsed = false
 		SetColor()
-	
-
-
-func _on_dash_length_timeout() -> void:
-	dashing = false

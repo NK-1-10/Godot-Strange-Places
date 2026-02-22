@@ -7,6 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://d3obdbcqrmvd3" path="res://reverse.wav" id="5_cxxw8"]
 [ext_resource type="AudioStream" uid="uid://dgsv2sad434ob" path="res://ding.mp3" id="6_e24yd"]
 [ext_resource type="AudioStream" uid="uid://cwh7i4s3qiocu" path="res://dash.mp3" id="7_5gddd"]
+[ext_resource type="AudioStream" uid="uid://bc7fe67terc3k" path="res://background.mp3" id="8_o6gdn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1bvp3"]
 size = Vector2(16, 16)
@@ -16,6 +17,8 @@ offsets = PackedFloat32Array(0, 0.7906404, 1)
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
 
 [node name="Character" type="CharacterBody2D" unique_id=2144189251 groups=["Character"]]
+modulate = Color(0.58431375, 1, 1, 1)
+self_modulate = Color(1, 0.6666667, 1, 1)
 script = ExtResource("1_oolk3")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=940414201]
@@ -152,11 +155,53 @@ stream = ExtResource("5_cxxw8")
 [node name="DingSound" type="AudioStreamPlayer2D" parent="Sounds" unique_id=120286478]
 stream = ExtResource("6_e24yd")
 
-[node name="dash" type="AudioStreamPlayer2D" parent="Sounds" unique_id=996920768]
+[node name="dash2" type="AudioStreamPlayer2D" parent="Sounds" unique_id=1544989754]
 stream = ExtResource("7_5gddd")
+
+[node name="Background music" type="AudioStreamPlayer2D" parent="Sounds" unique_id=996920768]
+stream = ExtResource("8_o6gdn")
+volume_db = -3.284
+parameters/looping = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1434071045]
+process_mode = 3
+
+[node name="Death" type="Control" parent="CanvasLayer" unique_id=815166976]
+process_mode = 3
+visible = false
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DeathScree" type="ColorRect" parent="CanvasLayer/Death" unique_id=1548680760]
+process_mode = 3
+modulate = Color(1, 1, 1, 0.13333334)
+self_modulate = Color(1, 0.32586592, 0.28937954, 1)
+layout_mode = 0
+offset_left = -180.0
+offset_top = -103.0
+offset_right = 189.0
+offset_bottom = 110.0
+
+[node name="Button" type="Button" parent="CanvasLayer/Death" unique_id=608576745]
+process_mode = 3
+custom_minimum_size = Vector2(-1, -1)
+layout_mode = 0
+offset_left = -33.0
+offset_top = -9.0
+offset_right = 41.0
+offset_bottom = 11.0
+theme_override_font_sizes/font_size = 8
+text = "You died. Restart"
 
 [connection signal="area_entered" from="OuchOuchBox" to="." method="_on_ouch_ouch_box_area_entered"]
 [connection signal="area_entered" from="Orb_Detector" to="." method="_on_orb_detector_area_entered"]
 [connection signal="timeout" from="JumpBuffer" to="." method="_on_jump_buffer_timeout"]
 [connection signal="timeout" from="JumpGrace" to="." method="_on_jump_grace_timeout"]
 [connection signal="timeout" from="DashLength" to="." method="_on_dash_length_timeout"]
+[connection signal="pressed" from="CanvasLayer/Death/Button" to="." method="_on_button_pressed"]

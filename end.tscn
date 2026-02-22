@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://c7bbvpp0a3tkk"]
+
+[ext_resource type="Script" uid="uid://bw33jg4s26gw5" path="res://end.gd" id="1_n735c"]
+
+[node name="End" type="Control" unique_id=1038125290]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_n735c")
+
+[node name="Label" type="Label" parent="." unique_id=695124629]
+layout_mode = 0
+offset_left = 69.0
+offset_top = 40.0
+offset_right = 241.0
+offset_bottom = 63.0
+text = "Thank you for playing!"
+
+[node name="Button" type="Button" parent="." unique_id=755151549]
+layout_mode = 0
+offset_left = 71.0
+offset_top = 67.0
+offset_right = 240.0
+offset_bottom = 87.0
+text = "Back to main menu"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
